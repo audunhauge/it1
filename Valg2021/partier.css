@@ -1,0 +1,32 @@
+#overskrift {
+    text-align: center;
+}
+#grupperinger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#svred,
+#ap {
+    color: red;
+}
+#svgreen {
+    color: green;
+}
+
+#hoyre li:nth-child(1) {
+  color: blue;
+}
+
+#hoyre li:nth-child(2) {
+    color: lightblue;
+  }
+
+#hoyre li:nth-child(3) {
+    color: yellow;
+}
+
+body {
+   
+    text-shadow: black 0px 0px 18px;
+}
