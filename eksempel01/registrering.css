@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    color:rgb(104, 104, 245);
+    font-size: 2.2rem;
+}
+
+h5 { color:red; }
+
+img {
+    position: absolute;
+    right: 10px;
+    top:10px;
+    width:150px;
+    height: 100px;
+}
+
+form {
+    color:green;
+}
+
+div {
+    background-image: url("./cat.png");
+    background-size: cover;
+    position: relative;
+    left:calc(50% - 10rem);
+    padding: 5px;
+    width: 20rem;
+    height: 12rem;
+    margin-top: 10px;
+    border: blueviolet 2px solid;
+}

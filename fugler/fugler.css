@@ -1,0 +1,73 @@
+#overskrift {
+    position:absolute;
+    top: 10px;
+    text-align: center;
+    width:100vw;
+}
+  #meny {
+    position:absolute;
+    left: 10px;
+    top: 100px;
+  }
+  #gruppering {
+    position:absolute;
+    left: 100px;
+    top: 300px;
+    /*border:solid red 1px;*/
+  }
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+
+  #b1 {
+      width:150px;
+  }
+  #b2 {
+      width: 150px;
+  }
+
+  .meiser {
+      position: relative;
+      width:256px;
+      height: 173px;
+      background-image: url("./meiser.jpg"); 
+      margin: 25px;
+      border: darkolivegreen solid 5px;
+  }
+
+  .meiser:after {
+      display: block;
+      position: absolute;
+      content: attr(data-tekst);
+      bottom: -26px;
+      left:30px;
+      width:50px;
+      height: 16px;
+  }
+
+  /* kjøttmeis */
+  .meiser:nth-child(1) {
+    background-position-x: calc(-256px * 2);
+    background-position-y: calc(-173px * 2);
+  }
+  /* toppmeis */
+  .meiser:nth-child(2) {
+    background-position-x: calc(-256px * 1);
+    background-position-y: calc(-173px * 5);
+  }
+/* granmeis */
+.meiser:nth-child(3) {
+        background-position-x: calc(-256px * 1);
+        background-position-y: calc(-173px * 0);
+}
+/* xxx */
+.meiser:nth-child(4) {
+    background-position-x: calc(-256px * 2);
+    background-position-y: calc(-173px * 3);
+}
+
+#galleri {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
