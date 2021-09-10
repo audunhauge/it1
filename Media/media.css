@@ -1,0 +1,18 @@
+#grupperinger {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#grupperinger div {
+    border: solid 1px green;
+    margin: 5px;
+    padding:10px;
+}
+
+#d1 { color:blue; }
+#d2 { color:red;}
+#d3 { color:green;}
+
+img {
+    width:150px;
+}
