@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamisk</title>
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+    <script src="https://get.mavo.io/mavo.js"></script>
+</head>
+<body>
+    <div mv-app="storageTest" mv-storage="local" style="background-color: [color];">
+        My first Mavo app! [$today] [($now - $startup)]
+        <p style="position:relative; 
+           left:[$mouse.x]px;
+        top:[$mouse.y]px;
+        " >
+        
+        Slider value: [strength]/100</p>
+        <input type="range" property="strength" title="[strength]%" /> <p></p>
+
+        <input type="range" property="hue" max="360" />  <br>
+        <input type="range" property="saturation" />  <br>
+        <input type="range" property="lightness" />  <br>
+    
+        <input property="color" readonly
+               value="hsl([hue], [saturation]%, [lightness]%)" />
+
+    </div>
+ 
+</body>
+</html>

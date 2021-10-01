@@ -1,0 +1,37 @@
+#medlem {
+    display: grid;
+    grid-template-rows: 4rem 1fr 2rem;
+    grid-template-columns: 20rem 5fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas:
+    "header   header   header"
+    "meny     main     aside"
+    "footer   footer   footer";
+}
+
+#medlem > * {
+    border: solid gray 1px;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+menu {
+    grid-area: meny;
+}
+main {
+    grid-area: main;
+}
+aside {
+    grid-area: aside;
+}
+footer {
+    grid-area: footer;
+    text-align:end;
+}
+
+div.grid > div {
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 2fr;
+}
