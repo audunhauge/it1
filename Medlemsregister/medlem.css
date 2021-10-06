@@ -1,3 +1,9 @@
+:root {
+    --mainfont:#761f18;
+    --mv-bar:#ffd974;
+    --hovedBakgrunn:white;
+}
+
 #medlem {
     display: grid;
     grid-template-rows: 4rem 1fr 2rem;
@@ -7,10 +13,12 @@
     "header   header   header"
     "meny     main     aside"
     "footer   footer   footer";
+    color:var(--mainfont);
+    background-color: var(--hovedBakgrunn);
 }
 
-#medlem > * {
-    border: solid gray 1px;
+#medlem div.mv-bar {
+    background-color:var(--mv-bar);
 }
 
 header {

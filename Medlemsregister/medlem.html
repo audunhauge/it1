@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medlemsregister</title>
     <link rel="stylesheet" href="medlem.css">
-    <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css" />
     <script src="https://get.mavo.io/mavo.js"></script>
 </head>
 
 <body>
     <div id="medlem">
         <header>
-            <h1>medlemsregister</h1>
+            <h1>Pizzabakeren</h1>
         </header>
         <menu></menu>
-        <main mv-app class="mv-autoedit" mv-storage="local" id="main">
+        <main mv-app  mv-storage="local" id="main">
             <div class="grid">
                 <div property="person" mv-multiple>
                     <strong property="fornavn"></strong>
@@ -26,10 +26,29 @@
                     <strong property="tlf"></strong>
                 </div>
             </div>
-            <button mv-action="delete(person)">Slett alle</button>
+            <div>
+                <button mv-action="delete(person where adresse=opt)">Slettadr </button>
+            </div>
+            <div>
+                <button mv-action="delete(person where fornavn=opt)">SlettFor </button>
+            </div>
+            <div>
+                <button mv-action="delete(person where etternavn=opt)">SlettEtt </button>
+            </div>
+            <div>
+                <button mv-action="delete(person where tlf=opt)">SlettTlf </button>
+            </div>
+            <div>
+                <button mv-action="delete(person where 
+                contains(fornavn & etternavn & adresse,opt) )">SlettAny </button>
+            </div>
+            <input type="text" property="opt">
         </main>
         <aside></aside>
         <footer>2021 © A.H.</footer>
+        <datalist class="mv-phrases" lang="no">
+            <option value="hello">morn du</option>
+        </datalist>
     </div>
 </body>
 
