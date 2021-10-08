@@ -2,6 +2,9 @@
     background-color: black;
     height: 400px;
 }
+#space.landing {
+    background-color: blue;
+}
 #ground {
     position: relative;
     background-color: burlywood;
