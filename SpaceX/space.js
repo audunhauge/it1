@@ -1,11 +1,11 @@
 // @ts-check
 
 const rocket = {
-    x:300,
-    y:0,
-    vx:0,
-    vy:6,
-    div:null,
+    x: 300,
+    y: 0,
+    vx: 0,
+    vy: 6,
+    div: null,
 }
 
 let animation;
@@ -15,10 +15,19 @@ function flyttRakett() {
     rocket.y += rocket.vy;
     rocket.x += rocket.vx;
     rocket.div.style.transform = `translate(${rocket.x}px,${rocket.y}px)`;
+    if (rocket.y > 400) {
+        if (rocket.vy < 3) {
+
+        } else {
+            document.getElementById("bigbang").classList.add("aktiv");
+            document.getElementById("falcon").classList.add("krasja");
+        }
+        clearInterval(animation);
+    }
 }
 
 export function startSpillet() {
     rocket.div = document.getElementById("falcon");
-    setInterval(flyttRakett,100);
+    animation = setInterval(flyttRakett, 100);
 
 }
