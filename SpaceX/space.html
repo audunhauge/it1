@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,30 @@
     <title>SpaceX</title>
     <link rel="stylesheet" href="space.css">
 </head>
+
 <body>
-    <div id="space"></div>
-    <div id="ground">
-        <div id="platform"></div>
-        <div id="bigbang"></div>
+    <div>
+        <div id="space">
+            <button id="start">Start spillet</button>
+            <div id="gui">
+                <label>Poeng: {poeng} </label><br>
+                <label>Fuel: {fuel} </label><br>
+                <label>Speed: {vy} </label>
+            </div>
+        </div>
+        <div id="ground">
+            <div id="platform"></div>
+            <div id="bigbang"></div>
+        </div>
+        <div id="falcon"></div>
     </div>
-    <div id="falcon"></div>
-   
+
     <script type="module">
-        import {startSpillet} from "./space.js";
+        import { startSpillet } from "./space.js";
+        import { interpolate } from "./ok.js";
+        interpolate();
         startSpillet();
     </script>
 </body>
+
 </html>
