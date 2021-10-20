@@ -10,25 +10,24 @@
 </head>
 
 <body>
-    <div>
-        <div id="space">
-            <button id="start">Start spillet</button>
-            <div id="gui">
-                <label>Poeng: {poeng} </label><br>
-                <label>Fuel: {fuel} </label><br>
-                <label>Speed: {vy} </label>
-            </div>
+    <div id="space">
+        <div id="gui">
+            Speed: {speed}
         </div>
-        <div id="ground">
-            <div id="platform"></div>
-            <div id="bigbang"></div>
-        </div>
-        <div id="falcon"></div>
     </div>
+    <div id="ground">
+        
+    </div>
+    <div id="platform"></div>   
+   
+    <div id="falcon">
+        <div id="bigbang"></div>
+    </div>
+    <div id="start"><button>Start</button></div>
 
     <script type="module">
         import { startSpillet } from "./space.js";
-        import { interpolate } from "./ok.js";
+        import { interpolate } from "./Minos.js";
         interpolate();
         startSpillet();
     </script>

@@ -1,14 +1,22 @@
 // @ts-check
 
-
+/**
+ * An element/thing with position/speed/rotation/width/height
+ */
 export class Moveable {
-    x=0;
-    y=0;
-    vx=0;
-    vy=0;
-    r =0;
+    /** @type {number} */ x = 0;
+    /** @type {number} */ y = 0;
+    /** @type {number} */ vx = 0;
+    /** @type {number} */ vy = 0;
+    /** @type {number} */ r = 0;
+    /** @type {number} */ w = 0;
+    /** @type {number} */ h = 0;
 
-    constructor (sprite) {
+    /**
+     * Creates a new movable with given sprite
+     * @param {HTMLElement | any} sprite 
+     */
+    constructor(sprite) {
         this.sprite = sprite;
     }
 
@@ -20,5 +28,20 @@ export class Moveable {
     move() {
         this.x += this.vx;
         this.y += this.vy;
+    }
+
+    /**
+     * Check for overlap with b
+     * @param {Moveable} b 
+     * @returns true if a,b overlap
+     */
+    overlap(b) {
+        const a = this;
+        return (
+            a.x > b.x - a.w &&
+            a.x < b.x + b.w &&
+            a.y > b.y - a.y &&
+            a.y < b.y + b.h
+        )
     }
 }
