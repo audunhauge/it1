@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automatisk</title>
 </head>
+
 <body>
     <div id="main">
-        {antall}
+        Antall klikk : {antall}
+        <br> Poeng : {poeng}
     </div>
+    <div>
+        <button id="kjop" type="button">Kjøp {antall}</button>
+    </div>
+    <div><input type="number" id="pris"></div>
+    <div>Totalpris blir {total}</div>
 
     <script type="module">
-        import {mineTing} from "./auto.js";
+        import {} from "./auto.js";
     </script>
 
 </body>
+
 </html>
