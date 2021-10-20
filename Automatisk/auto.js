@@ -1,15 +1,20 @@
 // @ts-check
-import { updateMyProperties,prepTheWebPage,thingsWithId } from "./Minos.js";
-prepTheWebPage();
-const {main} = thingsWithId();
-const ting = updateMyProperties({
-    antall:0,
-})
 
-ting.antall = 0;
+import {updateMyProperties, thingsWithId, prepTheWebPage} from "./Minos.js";
+
+const {main} = thingsWithId();
+prepTheWebPage();
+
+const mineTing = updateMyProperties(
+    {
+        antall:0,
+    });
 
 main.addEventListener("click", () => {
-    ting.antall += 1;
-})
+    mineTing.antall += 1;
+});
 
-export {ting};
+mineTing.antall = 0;
+
+export { mineTing};
+
