@@ -12,12 +12,14 @@
     <div id="main">
         Antall klikk : {antall}
         <br> Poeng : {poeng}
+        <br> Pris : {pris}
+        <br> Test : {(pris * 2)/4}   {poeng+pris+sin(2)}
     </div>
     <div>
         <button id="kjop" type="button">Kjøp {antall}</button>
     </div>
-    <div><input type="number" id="pris"></div>
-    <div>Totalpris blir {total}</div>
+    <div><input type="number" name="pris"></div>
+    <div>Totalpris blir {10*pris}</div>
 
     <script type="module">
         import {} from "./auto.js";

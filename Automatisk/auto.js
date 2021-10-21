@@ -1,27 +1,26 @@
 // @ts-check
 
-import {updateMyProperties, thingsWithId, prepTheWebPage} from "./Minos.js";
-// må kjøre prep før vi henter ting med id
-// bytter ut {navn} med span
-prepTheWebPage();
+import { updateMyProperties, thingsWithId } from "./Minos.js";
+
 // henter de tingene vi har gitt id på websida
-const {pris,kjop} = thingsWithId();
+const { kjop } = thingsWithId();
 
+// web variable - endringer av web.x oppdaterer {x} på html-sida
+// merk at du kan ha <div> {x} </div>  ---  innerHTML oppdaters
+// men ikke <div style="width:{x}px">  --- ting inne i tag'en oppdateres ikke
 
-const mineTing = updateMyProperties(
-    {
-        antall:0,
-        poeng:10,
-        total:0,
-    });
+const web = updateMyProperties();
 
 kjop.addEventListener("click", () => {
-    mineTing.antall += 1;
-    mineTing.poeng -= 1;
-    mineTing.total = Number(pris.value) * mineTing.antall;
+    web.antall += 1;
+    web.poeng -= 1;
+    web.total = 12 * web.antall;
+    web.pris = web.total;
 });
 
-mineTing.antall = 0;
-mineTing.poeng = 10.1;
+// setter startverdier - ellers vises en X
+web.antall = 0;
+web.poeng = 10.1;
+web.pris = 3;
 
 
