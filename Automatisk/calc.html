@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkel kalkulator</title>
+</head>
+
+<body>
+    <span> x = <input type="number" name="x"></span>  <span> y = <input type="number" name="y"></span>
+    <p>
+        <select name="q" id="">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+    </p>
+    <div>
+        x + y = {x+y} <br>
+        x - y = {x-y} <br>
+        x * y = {x*y} <br>
+        x / y = {x/y} <br>
+        x * π = {x*π} <br>
+        x {q} y = {$x $q y} <br>
+        sin(x/y) = {sin(x/y)}
+    </div>
+
+    <script type="module">
+        import { updateMyProperties } from "./Minos.js";
+        const web = updateMyProperties();
+        web.x = 1; web.y = 1; web.q = '+';
+    </script>
+</body>
+
+</html>

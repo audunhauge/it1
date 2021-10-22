@@ -29,7 +29,7 @@ function prepTheWebPage() {
 
     // pick out any inputs with value="{name}"
     {
-        const inps = document.querySelectorAll('input[name]');
+        const inps = document.querySelectorAll('input[name],select[name]');
         inps.forEach(inp => {
             const name = inp.getAttribute("name");
             inputs[name] = inp;
@@ -81,44 +81,55 @@ const num = (n) => {
     return Number.isFinite(n)
         ? Number.isInteger(n)
             ? n
-            : n.toFixed(2)
+            : (String(n).length > 8)
+                ? n.toFixed(4)
+                : n
         : n;
 }
 
 const mathEnvironment = {
-    sin:Math.sin,
-    cos:Math.cos,
-    tan:Math.tan,
-    abs:Math.abs,
-    atan:Math.atan,
-    asin:Math.asin,
-    acos:Math.acos,
-    exp:Math.exp,
-    floor:Math.floor,
-    log:Math.log,
-    log10:Math.log10,
-    max:Math.max,
-    min:Math.min,
-    pow:Math.pow,
-    random:Math.random,
-    round:Math.round,
-    sign:Math.sign,
-    sqrt:Math.sqrt,
-    π:Math.PI,
-    PI:Math.PI,
+    sin: Math.sin,
+    cos: Math.cos,
+    tan: Math.tan,
+    abs: Math.abs,
+    atan: Math.atan,
+    asin: Math.asin,
+    acos: Math.acos,
+    exp: Math.exp,
+    floor: Math.floor,
+    log: Math.log,
+    log10: Math.log10,
+    max: Math.max,
+    min: Math.min,
+    pow: Math.pow,
+    random: Math.random,
+    round: Math.round,
+    sign: Math.sign,
+    sqrt: Math.sqrt,
+    π: Math.PI,
+    PI: Math.PI,
 };
 
 
 const expressionValue = exp => {
+    if (exp.includes('$')) {
+        exp = exp.replace(/(\$\w+)/g, (_,e) => {
+            const name = e.substr(1);
+            if (valueOfNamedVars[name] !== undefined) {
+                return valueOfNamedVars[name];
+            }
+            return name;
+        });
+    }
     let v = "";
-    const environment = Object.assign(Object.assign({},mathEnvironment),valueOfNamedVars);
+    const environment = Object.assign(Object.assign({}, mathEnvironment), valueOfNamedVars);
     try {
         function ctxEval(exp, ctx) { // evaluates expression in the scope of context object
             return (new Function('expression', 'context', 'with(context){return eval(expression)}'))(exp, ctx);
         }
-        v = ctxEval(exp,environment);
-    } catch(error) {
-        console.error(error);
+        v = ctxEval(exp, environment);
+    } catch (error) {
+        console.log(error);
     }
     return v;
 }
@@ -155,15 +166,16 @@ export function updateMyProperties(obj) {
             }
             if (inputs[property]) {
                 const id = inputs[property].dataset.id;
-                const t = document.querySelector(`input[data-id="${id}"]`);
+                const t = document.querySelector(`[data-id="${id}"]`);
                 // @ts-ignore
                 t.value = v;
+                valueOfNamedVars[property] = Number.isFinite(+v) ? Number(v) : v;
             }
             Object.keys(expressions).forEach(k => {
                 if (k.includes(String(property))) {
                     // expression looks like it depends on this property
                     const t = document.querySelector(`[data-name="${k}"]`);
-                    const v = expressionValue(k);
+                    const v = num(expressionValue(k));
                     // @ts-ignore
                     t.innerHTML = Number.isFinite(+v) ? Number(v) : v;
                 }
@@ -171,7 +183,7 @@ export function updateMyProperties(obj) {
             return true;
         }
     });
-    document.querySelectorAll("input[data-id]").forEach(elm => {
+    document.querySelectorAll("[data-id]").forEach(elm => {
         elm.addEventListener("input", up);
     });
     return pro;
