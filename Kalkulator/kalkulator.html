@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <main>
+        <div>x = <input type="number" name="x"></div>
+        <div>y = <input type="number" name="y"></div>
+        <p></p>
+        <div>
+            <select name="pris">
+                <option value="193">Drengen</option>
+                <option value="130">Margarita</option>
+                <option value="250">Diavolo</option>
+            </select> {pris} kr
+        </div>
+        <div>Antall <input type="range" min="1" max="10" name="antall" > {antall}</div>
+        <div>Totalpris blir {antall * pris} kr</div>
+        <p></p>
+        <section>
+            velg operasjon 
+            <select name="op">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+        </section>
+        <section>
+            <div>x {op} y = {x $op y}</div>
+        </section>
+    </main>
+    <script type="module">
+        // @ts-check
+        import { updateMyProperties, thingsWithId } from "./Minos.js";
+        const web = updateMyProperties();
+        web.x = 1;
+        web.y = 1;
+        web.op = "+";
+        web.pris = 193;
+        web.antall = 3;
+    </script>
+</body>
+
+</html>
