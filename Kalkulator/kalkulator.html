@@ -36,7 +36,7 @@
                 <option value="250">Diavolo</option>
             </select> {pris} kr
         </div>
-        <div>Antall <input type="range" min="1" max="10" name="antall"> {antall}</div>
+        <div>Antall <input type="range" min="0" max="9" name="antall"> {antall}</div>
         <div>Totalpris blir {antall * pris} kr</div>
         <p></p>
         <section>
@@ -48,13 +48,13 @@
                 <option>/</option>
             </select>
         </section>
-        <section style="color:{co}">
+        <section style="color:{co};font-size:1.{antall}rem;">
             <div>x {op} y = {x $op y}</div>
         </section>
     </main>
     <script type="module">
         // @ts-check
-        import { updateMyProperties, thingsWithId } from "./Minos.js";
+        import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
         const web = updateMyProperties();
         web.x = 1;
         web.y = 1;
@@ -62,6 +62,7 @@
         web.pris = 193;
         web.antall = 3;
         web.og = "yes";
+        web.co = "#bada55";
     </script>
 </body>
 

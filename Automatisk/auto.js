@@ -1,6 +1,6 @@
 // @ts-check
 
-import { updateMyProperties, thingsWithId } from "./Minos.js";
+import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
 
 // henter de tingene vi har gitt id på websida
 const { kjop } = thingsWithId();

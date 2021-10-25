@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            {oppgavene}
+        </ul>
+    </div>
+    <div>
+        <label>Oppgave: <input type="text" id="opp" name="opp"></label>
+        <label><button id="lagre" type="button">Lagre</button></label>
+    </div>
+
+    <script type="module">
+        // @ts-check
+        import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
+        const web = updateMyProperties({ oppgavene: "" });
+        const oppdrag = [];
+        web.oppgavene = "skal vise noen oppgaver her";
+        const { lagre,opp } = thingsWithId();
+
+        lagre.addEventListener("click", () => {
+            oppdrag.push(web.opp);
+            web.oppgavene = oppdrag.map(o => `<li>${o}</li>`).join('');
+            web.opp = "";
+            opp.focus();
+        })
+
+    </script>
+</body>
+
+</html>
