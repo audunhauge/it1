@@ -10,6 +10,7 @@ const namedVariables = {};
 const valueOfNamedVars = {};
 const expressions = {};
 const inputs = {};
+const styled = {};  // stylish things
 
 
 
@@ -27,6 +28,25 @@ function prepTheWebPage() {
     const allnames = {};  // all {names} and {exp + pressions}
     // will be filtered to seperate names/expressions
 
+    // pick out any styles 
+    {
+        const withStyle = document.querySelectorAll('[style]');
+        withStyle.forEach(elm => {
+            if (elm.getAttribute("style").includes('{')) {
+                elm.classList.add("stylish");
+            }
+        });
+
+        const list = document.querySelectorAll(".stylish");
+        list.forEach(l => {
+            if (!l.id) { l.id = "sty" + idnum++ }
+            styled[l.id] = l;
+            const orig = l.getAttribute("style");
+            l.setAttribute("data-orig",orig);
+            l.setAttribute("style","");
+        });
+
+    }
     // pick out any inputs with value="{name}"
     {
         const inps = document.querySelectorAll('input[name],select[name]');
@@ -113,7 +133,7 @@ const mathEnvironment = {
 
 const expressionValue = exp => {
     if (exp.includes('$')) {
-        exp = exp.replace(/(\$\w+)/g, (_,e) => {
+        exp = exp.replace(/(\$\w+)/g, (_, e) => {
             const name = e.substr(1);
             if (valueOfNamedVars[name] !== undefined) {
                 return valueOfNamedVars[name];
@@ -140,26 +160,29 @@ const expressionValue = exp => {
  * @param {Object} obj Contains named props
  * @returns a proxy for this object
  */
-export function updateMyProperties(obj) {
+export function updateMyProperties(obj = {}) {
     const up = e => {
         const inp = e.target;
         // @ts-ignore
         const name = inp.name;
         // @ts-ignore
-        pro[name] = inp.value;
+        if (inp.type === "checkbox") {
+            pro[name] = Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+            // @ts-ignore
+            .map(e => e.value).join(",");
+        } else {
+            // @ts-ignore
+            pro[name] = inp.value;
+        }
     }
-    if (obj === undefined) {
-        // create obj with props found in prepTheWebPage
-        obj = {};
-        Object.keys(namedVariables).forEach(k => obj[k] = undefined);
-    }
+    Object.keys(namedVariables).forEach(k => obj[k] = undefined);
 
     const pro = new Proxy(obj, {
         set: function (target, property, value) {
             const v = num(value);
             target[property] = value;
             if (namedVariables[property]) {
-                valueOfNamedVars[property] = Number.isFinite(+v) ? Number(v) : v;
+                valueOfNamedVars[property] = v;
                 namedVariables[property].forEach(t => {
                     t.innerHTML = v;
                 });
@@ -168,8 +191,11 @@ export function updateMyProperties(obj) {
                 const id = inputs[property].dataset.id;
                 const t = document.querySelector(`[data-id="${id}"]`);
                 // @ts-ignore
-                t.value = v;
-                valueOfNamedVars[property] = Number.isFinite(+v) ? Number(v) : v;
+                if (! "radiocheckbox".includes(t.type)) {
+                    // @ts-ignore
+                    t.value = v;
+                }
+                valueOfNamedVars[property] = v;
             }
             Object.keys(expressions).forEach(k => {
                 if (k.includes(String(property))) {
@@ -177,7 +203,19 @@ export function updateMyProperties(obj) {
                     const t = document.querySelector(`[data-name="${k}"]`);
                     const v = num(expressionValue(k));
                     // @ts-ignore
-                    t.innerHTML = Number.isFinite(+v) ? Number(v) : v;
+                    t.innerHTML = v;
+                }
+            });
+            // interpolate values into styles
+            Object.keys(styled).forEach(k => {
+                const elm = styled[k];
+                const orig = elm.dataset.orig;
+                if (orig.includes(String(property))) {
+                    // style looks like it depends on this property
+                   const style = orig.replace(/\{(\w+)\}/g,(_,m) => {
+                        return valueOfNamedVars[m] || '';
+                    });
+                    elm.style = style;
                 }
             })
             return true;

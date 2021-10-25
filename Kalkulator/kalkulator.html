@@ -7,31 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator</title>
 </head>
+
 <body>
     <main>
+        <div>
+            <p>Og<input type="radio" name="og" value="2"></p>
+            <p>NOg<input type="radio" name="og" value="1"></p>
+            {og}
+        </div>
+        <div>
+            <label>Wantsmcheese <input type="checkbox" value="1" name="old"></label>
+            <label>Wantsmcheese <input type="checkbox" value="2" name="old"></label>
+            {old}
+        </div>
+        <div>
+            <label>Wantsmcheese <input type="checkbox" value="3" name="free"></label>
+            <label>Wantsmcheese <input type="checkbox" value="fire" name="free"></label>
+            {free}
+        </div>
+        <div><label>Color <input name="co" type="color"></label> {co}</div>
         <div>x = <input type="number" name="x"></div>
         <div>y = <input type="number" name="y"></div>
         <p></p>
-        <div>
-            Ekstra dressing <input type="checkbox" name="extra"> {extra}
-        </div>
-        <div>
-            Størrelse 
-            <label for="liten">Liten</label><input value="liten" type="radio" name="liten"> 
-            <label for="stor">Stor</label><input value="stor" type="radio" name="liten"> 
-        </div>
-        <div>
+        <div id="jada">
             <select name="pris">
                 <option value="193">Drengen</option>
                 <option value="130">Margarita</option>
                 <option value="250">Diavolo</option>
             </select> {pris} kr
         </div>
-        <div>Antall <input type="range" min="1" max="10" name="antall" > {antall}</div>
+        <div>Antall <input type="range" min="1" max="10" name="antall"> {antall}</div>
         <div>Totalpris blir {antall * pris} kr</div>
         <p></p>
         <section>
-            velg operasjon 
+            velg operasjon
             <select name="op">
                 <option>+</option>
                 <option>-</option>
@@ -39,7 +48,7 @@
                 <option>/</option>
             </select>
         </section>
-        <section>
+        <section style="color:{co}">
             <div>x {op} y = {x $op y}</div>
         </section>
     </main>
@@ -52,6 +61,7 @@
         web.op = "+";
         web.pris = 193;
         web.antall = 3;
+        web.og = "yes";
     </script>
 </body>
 
