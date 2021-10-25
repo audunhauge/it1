@@ -10,29 +10,56 @@
 
 <body>
     <div>
-        <ul>
+        <ul id="liste">
             {oppgavene}
         </ul>
     </div>
     <div>
-        <label>Oppgave: <input type="text" id="opp" name="opp"></label>
+        <label>Oppgave: <input type="text" id="opp" name="nyoppgave"></label>
         <label><button id="lagre" type="button">Lagre</button></label>
     </div>
 
     <script type="module">
         // @ts-check
+        // @ts-ignore
         import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
-        const web = updateMyProperties({ oppgavene: "" });
-        const oppdrag = [];
-        web.oppgavene = "skal vise noen oppgaver her";
-        const { lagre,opp } = thingsWithId();
 
-        lagre.addEventListener("click", () => {
-            oppdrag.push(web.opp);
-            web.oppgavene = oppdrag.map(o => `<li>${o}</li>`).join('');
-            web.opp = "";
-            opp.focus();
-        })
+        const web = updateMyProperties();
+        const { lagre,opp,liste } = thingsWithId();
+
+    // klargjør applikasjonen
+        // henter gamle data
+        const oppdrag = web.getLocalJSON('oppdrag') || [];
+        // viser eventuellle gamle data
+        web.oppgavene = web.wrap(oppdrag,'li');
+        opp.focus();  // setter fokus i input elementet
+
+    // oppdaterer oppdrag[] og viser resultatet
+        lagre.onclick =  () => {
+            oppdrag.push(web.nyoppgave);                // ny oppgave legges til
+            visLista();
+            // klargjør for nytt oppdrag
+            web.nyoppgave = "";                         // fjerner gammel tekst
+            opp.focus();                                // fokus i input box
+        }
+
+        function visLista() {
+            web.oppgavene = web.wrap(oppdrag,'li');     // viser lista
+            web.setLocalJSON('oppdrag',oppdrag);        // lagrer i localStorage
+        }
+
+    // ved klikk på lista sjekker vi om vi kan slette valgt element
+        liste.onclick = (e) => {
+            const t = e.target;
+            const txt = t.innerText;
+            const idx = oppdrag.indexOf(txt);
+            if (idx >= 0) {
+                oppdrag[idx] = oppdrag[oppdrag.length-1];
+                oppdrag.pop();
+                visLista();
+            }
+        }
+
 
     </script>
 </body>
