@@ -20,57 +20,7 @@
     </div>
 
     <script type="module">
-        // @ts-check
-        // @ts-ignore
-        import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
-
-        const web = updateMyProperties();
-        const { lagre,opp,liste } = thingsWithId();
-
-    // klargjør applikasjonen
-        // henter gamle data
-        const oppdrag = web.getLocalJSON('oppdrag') || [];
-        // viser eventuellle gamle data
-        web.oppgavene = web.wrap(oppdrag,'li');
-        opp.focus();  // setter fokus i input elementet
-
-        // ved klikk på knapp lagres data
-        lagre.onclick = lagreData;
-        
-        // "enter" i input samme effekt som klikk på knapp
-        opp.onkeyup = (k) => {
-            if (k.key === 'Enter') {
-                lagreData();
-            }
-        }
-
-    // oppdaterer oppdrag[] og viser resultatet
-        function lagreData() {
-            oppdrag.push(web.nyoppgave);                    // ny oppgave legges til
-            visLista();
-            // klargjør for nytt oppdrag
-            web.nyoppgave = "";                             // fjerner gammel tekst
-            opp.focus();                                    // fokus i input box
-        }
-
-        function visLista() {
-            web.oppgavene = web.wrap(oppdrag,'li');         // viser lista
-            web.setLocalJSON('oppdrag',oppdrag);            // lagrer i localStorage
-        }
-
-    // ved klikk på lista sjekker vi om vi kan slette valgt element
-        liste.onclick = (e) => {
-            const t = e.target;
-            const txt = t.innerText;
-            const idx = oppdrag.indexOf(txt);               // idx er negativ dersom ikke funnet
-            if (idx >= 0) {
-                oppdrag[idx] = oppdrag[oppdrag.length-1];   // verdien på siste plass legges inn
-                oppdrag.pop();                              // fjern siste element
-                visLista();
-            }
-        }
-
-
+        import {} from "./todo.js";
     </script>
 </body>
 
