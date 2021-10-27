@@ -19,8 +19,9 @@
         og {x} i diven skiftes ut med "12"
     -->
 
-    <div stil="background-color:red;width:calc({bredde}px * 10);"> {x} </div>
+    <div stil="background-color:red;width:calc((2px + {bredde}px) * 4);"> {bredde} </div>
     <input name="bredde" type="range" min="10" max="100" >
+    <div>  {(+bredde+2)*4} </div>
 
     <script type="module">
         import {} from "./start.js";
