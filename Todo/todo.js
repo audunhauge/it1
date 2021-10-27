@@ -7,7 +7,7 @@ const web = updateMyProperties();
  * endring av input oppdaterer web.zz og {zz} (og omvendt)
  */
 
-const { lagre, oppgave } = thingsWithId();
+const { liste, lagre, oppgave } = thingsWithId();
 
 const oppgaveListe = web.getLocalJSON("oppgaver") || [];
 const fjernGammelTekst = () => web.oppgave = "";
@@ -29,6 +29,19 @@ lagre.onclick = () => {
     visAlleOppgaver();
     lagreDataPermanent();
 }
+
+liste.onclick = (e) => {
+    const t = e.target;
+    const txt = t.innerText;
+    const idx = oppgaveListe.indexOf(txt);
+    if (idx >= 0) {
+        const siste = oppgaveListe.pop();
+        oppgaveListe[idx] = siste;
+        visAlleOppgaver();
+        lagreDataPermanent();
+    }
+}
+
 
 
 
