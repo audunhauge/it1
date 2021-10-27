@@ -12,13 +12,13 @@ const { liste, lagre, oppgave } = thingsWithId();
 const oppgaveListe = web.getLocalJSON("oppgaver") || [];
 const fjernGammelTekst = () => web.oppgave = "";
 const setFocusIoppgave = () => oppgave.focus();
-const visAlleOppgaver = () => web.oppgavene = web.wrap(oppgaveListe,"li");
-const lagreDataPermanent = () => web.setLocalJSON("oppgaver",oppgaveListe);
+const visAlleOppgaver = () => web.oppgavene = web.wrap(oppgaveListe, "li");
+const lagreDataPermanent = () => web.setLocalJSON("oppgaver", oppgaveListe);
 
 oppgave.focus();
 visAlleOppgaver();
 
-lagre.onclick = () => {
+const registrerNyOppgave = () => {
     const nyOppgave = web.oppgave;
     setFocusIoppgave();
     fjernGammelTekst();
@@ -30,13 +30,24 @@ lagre.onclick = () => {
     lagreDataPermanent();
 }
 
+lagre.onclick = registrerNyOppgave;
+oppgave.onkeypress = e => {
+    if (e.key === "Enter") {
+        registrerNyOppgave();
+    }
+}
+
+
+
 liste.onclick = (e) => {
     const t = e.target;
     const txt = t.innerText;
     const idx = oppgaveListe.indexOf(txt);
     if (idx >= 0) {
         const siste = oppgaveListe.pop();
-        oppgaveListe[idx] = siste;
+        if (oppgaveListe.length > idx) {
+            oppgaveListe[idx] = siste;
+        }
         visAlleOppgaver();
         lagreDataPermanent();
     }
