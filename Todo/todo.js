@@ -9,23 +9,25 @@ const web = updateMyProperties();
 
 const { lagre, oppgave } = thingsWithId();
 
-const oppgaveListe = [ ];
-
+const oppgaveListe = web.getLocalJSON("oppgaver") || [];
 const fjernGammelTekst = () => web.oppgave = "";
 const setFocusIoppgave = () => oppgave.focus();
-const visAlleOppgaver = () => {
-
-}
+const visAlleOppgaver = () => web.oppgavene = web.wrap(oppgaveListe,"li");
+const lagreDataPermanent = () => web.setLocalJSON("oppgaver",oppgaveListe);
 
 oppgave.focus();
-web.oppgave = "Rydd på rommet";
+visAlleOppgaver();
 
 lagre.onclick = () => {
     const nyOppgave = web.oppgave;
-    oppgaveListe.push(nyOppgave);
-    visAlleOppgaver();
     setFocusIoppgave();
     fjernGammelTekst();
+    if (nyOppgave === "") {
+        return;
+    }
+    oppgaveListe.push(nyOppgave);
+    visAlleOppgaver();
+    lagreDataPermanent();
 }
 
 
