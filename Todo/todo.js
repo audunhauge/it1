@@ -2,11 +2,6 @@
 import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
 
 const web = updateMyProperties();
-/** web vil ha en web.xx og web.zz   gitt: <div>{xx} <input name="zz"> {zz} </div>
- * disse vil automatisk oppdateres, web.xx = 1 => {xx} erstattes med 1
- * endring av input oppdaterer web.zz og {zz} (og omvendt)
- */
-
 const { liste, oppgave } = thingsWithId();
 
 const oppgaveListe = web.getLocalJSON("oppgaver") || [];
@@ -30,13 +25,7 @@ const registrerNyOppgave = () => {
     lagreDataPermanent();
 }
 
-oppgave.onkeypress = e => {
-    if (e.key === "Enter") {
-        registrerNyOppgave();
-    }
-}
-
-
+oppgave.onkeypress = e => e.key === "Enter" ? registrerNyOppgave() : null;
 
 liste.onclick = (e) => {
     const t = e.target;
@@ -51,8 +40,4 @@ liste.onclick = (e) => {
         lagreDataPermanent();
     }
 }
-
-
-
-
 
