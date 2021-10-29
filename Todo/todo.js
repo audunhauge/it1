@@ -7,7 +7,7 @@ const web = updateMyProperties();
  * endring av input oppdaterer web.zz og {zz} (og omvendt)
  */
 
-const { liste, lagre, oppgave } = thingsWithId();
+const { liste, oppgave } = thingsWithId();
 
 const oppgaveListe = web.getLocalJSON("oppgaver") || [];
 const fjernGammelTekst = () => web.oppgave = "";
@@ -30,7 +30,6 @@ const registrerNyOppgave = () => {
     lagreDataPermanent();
 }
 
-lagre.onclick = registrerNyOppgave;
 oppgave.onkeypress = e => {
     if (e.key === "Enter") {
         registrerNyOppgave();
