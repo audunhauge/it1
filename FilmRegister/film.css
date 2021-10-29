@@ -4,3 +4,9 @@
     grid-template-columns: 1fr 3fr;
     margin:2px;
 }
+
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
