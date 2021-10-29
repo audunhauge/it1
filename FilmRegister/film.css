@@ -1,0 +1,6 @@
+#skjema > div > label {
+    max-width: 30rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin:2px;
+}
