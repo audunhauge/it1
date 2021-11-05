@@ -10,14 +10,23 @@
     display: grid;
     grid-template-areas: 
     "header"
+    "menu"
     "main"
     "footer";
 }
 
-.venstre { grid-area: venstre; }
-.center { grid-area: center; }
-.hoyre { grid-area: hoyre; }
+.kolonner3 {
+    display: grid;
+    grid-template-columns: 1fr  5rem 1fr;
+}
 
+
+.seek {
+    grid-area: menu;
+    background-color: var(--main-bg);
+    color: var(--header-bg);
+    min-height: 5vh;
+}
 header {
     color: var(--header-fg);
     background-color: var(--header-bg);
@@ -25,15 +34,16 @@ header {
     grid-area: header;
 }
 
+header img {
+    
+}
+
 main {
     background-color: var(--main-bg);
     color: var(--header-bg);
     min-height: 50vh;
     grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr  5rem 1fr;
-    grid-template-areas:
-    "venstre center hoyre";
+   
 }
 
 footer {
