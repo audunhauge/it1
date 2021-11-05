@@ -27,15 +27,38 @@
     color: var(--header-bg);
     min-height: 5vh;
 }
+.seek div {
+    margin:5px;
+}
+
+
 header {
+    position: relative;
     color: var(--header-fg);
     background-color: var(--header-bg);
-    height: 135px;
+    height: 185px;
     grid-area: header;
 }
 
 header img {
-    
+    position: relative;
+    height: 120px;
+    top:20px;
+    left:60px;
+}
+
+.pizzavenn {
+    margin:5px;
+    position: absolute;
+    color:white;
+    right: 60px;
+    top:120px;
+    transition: 200ms;
+}
+
+.pizzavenn:hover {
+    top:115px;
+    transition: 500ms;
 }
 
 main {
