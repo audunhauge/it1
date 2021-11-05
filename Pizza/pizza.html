@@ -21,12 +21,24 @@
                <br>
                Du fant {pizzanavn} som koster {pris} kr.
             </div>
+            <div>
+                Søk etter by <input type="text" id="by">
+                <br>
+                Du valgte {bynavn}
+             </div>
             <div><button id="kjop">Kjøp</button></div>
             <div>
                 <div>
                    
                 </div>
                 <h5>Din handlekorg</h5>
+                Du skal hente greiene på {bynavn}
+                <div repeat id="handlekorg">
+                    <div> <b>{navn}</b> {pris}kr </div>
+                </div>
+                <div>Totalt blir dette {total#sum(handlekorg,'pris')} kr</div>
+                <div> Gjennomsnittet er {total/handlekorg.length}</div>
+                {3+4*5}
                 
             </div>
         </div>
@@ -38,7 +50,7 @@
                 Magnam pariatur ex itaque eum
                 odio debitis impedit quaerat velit quis perferendis.
                 Rem, placeat repudiandae nesciunt adipisci voluptas
-                et cupiditate iusto. Laudantium. {tot+0*handlekorg.length}
+                et cupiditate iusto. Laudantium.
             </div>
 
             <div></div>
