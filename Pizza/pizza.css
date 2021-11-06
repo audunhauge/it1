@@ -1,0 +1,77 @@
+:root {
+    --header-fg: #F9AE00;
+    --header-bg: #761f18;
+    --main-bg:#FFF1C1;
+    --footer-bg:#FFD974;
+
+}
+
+.maingrid {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "menu"
+    "main"
+    "footer";
+}
+
+.kolonner3 {
+    display: grid;
+    grid-template-columns: 1fr  5rem 1fr;
+}
+
+
+.seek {
+    grid-area: menu;
+    background-color: var(--main-bg);
+    color: var(--header-bg);
+    min-height: 5vh;
+}
+.seek div {
+    margin:5px;
+}
+
+
+header {
+    position: relative;
+    color: var(--header-fg);
+    background-color: var(--header-bg);
+    height: 185px;
+    grid-area: header;
+}
+
+header img {
+    position: relative;
+    height: 120px;
+    top:20px;
+    left:60px;
+}
+
+.pizzavenn {
+    margin:5px;
+    position: absolute;
+    color:white;
+    right: 60px;
+    top:120px;
+    transition: 200ms;
+}
+
+.pizzavenn:hover {
+    top:115px;
+    transition: 500ms;
+}
+
+main {
+    background-color: var(--main-bg);
+    color: var(--header-bg);
+    min-height: 50vh;
+    grid-area: main;
+   
+}
+
+footer {
+    color: var(--header-bg);
+    background-color: var(--footer-bg);
+    min-height: 20vh;
+    grid-area: footer;
+}
