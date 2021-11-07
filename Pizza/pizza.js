@@ -1,5 +1,5 @@
 // @ts-check
-import { updateMyProperties, thingsWithId, preCalc } from "../lib/Minos.js";
+import { updateMyProperties, thingsWithId, preCalc, sum, sort } from "../lib/Minos.js";
 const { random } = Math;
 
 const web = updateMyProperties();
@@ -8,7 +8,7 @@ const web = updateMyProperties();
  * endring av input oppdaterer web.zz og {zz} (og omvendt)
  */
 
-const { kjop, pizza, by } = thingsWithId();
+const { kjop, pizza, by, sorter } = thingsWithId();
 
 preCalc();  // eventuelle beregninger som {3+4}
 // de som kan beregnes uten brukerinput oppdateres nå
@@ -52,4 +52,10 @@ kjop.onclick = () => {
             { navn: web.pizzanavn, pris: web.pris }
         );
     }
+}
+
+let retning = true;
+sorter.onclick = () => {
+    sort(web.handlekorg,"pris",retning);
+    retning = !retning;
 }
