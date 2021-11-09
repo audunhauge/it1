@@ -2,7 +2,9 @@
 import { updateMyProperties, thingsWithId, preCalc, sum, sort } from "../lib/Minos.js";
 const { random } = Math;
 
-const web = updateMyProperties();
+const ting = { farge:0 };
+
+const web = updateMyProperties(ting);
 /** web vil ha en web.xx og web.zz   gitt: <div>{xx} <input name="zz"> {zz} </div>
  * disse vil automatisk oppdateres, web.xx = 1 => {xx} erstattes med 1
  * endring av input oppdaterer web.zz og {zz} (og omvendt)
@@ -10,9 +12,11 @@ const web = updateMyProperties();
 
 const { kjop, pizza, by, sorter } = thingsWithId();
 
+
 preCalc();  // eventuelle beregninger som {3+4}
 // de som kan beregnes uten brukerinput oppdateres nå
 
+Object.assign(web,{vx:4,vy:3});
 
 const pizzaliste = [
     { navn: "drengen", pris: 120 },
@@ -52,6 +56,7 @@ kjop.onclick = () => {
             { navn: web.pizzanavn, pris: web.pris }
         );
     }
+    web.farge = '#'+String(Math.random()).substr(2,6);
 }
 
 let retning = true;
