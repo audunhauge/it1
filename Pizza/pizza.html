@@ -16,34 +16,37 @@
             <div class="pizzavenn">Logg inn PB-venn</div>
         </header>
         <div class="seek kolonner3">
+            <div></div>
             <div>
-               Søk etter pizza <input type="text" id="pizza">
-               <br>
-               Du fant {pizzanavn} som koster {pris} kr.
+                Søk etter pizza <input type="text" id="pizza">
+                <br>
+                Du fant {pizzanavn} som koster {pris} kr.
             </div>
+            <div><button id="kjop">Kjøp</button></div>
             <div stil="color:{farge}">
                 Søk etter by <input type="text" id="by">
                 <br>
                 Du valgte {bynavn}
-             </div>
-            <div><button id="kjop">Kjøp</button></div>
+            </div>
+            <div></div>
+
+            <div></div>
             <div>
-                <div>
-                 {farge}
-                </div>
                 <h5>Din handlekorg</h5>
                 Du skal hente greiene på {bynavn}
                 <div repeat id="handlekorg">
                     <div> <b>{navn}</b> {pris}kr </div>
                 </div>
                 <div>Totalt blir dette {total#sum(handlekorg,'pris')} kr</div>
-                <div> Gjennomsnittet er {total/handlekorg.length}</div>
-                <div id="sorter">Sorter</div>
-                
+                <div> Gjennomsnittet er {total/handlekorg.length || 0}</div>
+                <p>
+                    <button type="button" id="sorter">Sorter
             </div>
+            </p>
         </div>
 
         <main class="kolonner3">
+            <div></div>
             <div>
                 <h4>Venstre</h4>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -65,10 +68,23 @@
             </div>
         </main>
         <footer>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae cumque doloremque corrupti sequi odit
-            expedita placeat distinctio, asperiores voluptatibus nisi eius quia, 
-            in laboriosam voluptatum corporis unde
-            fuga aperiam eveniet.
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, obcaecati tempora fuga fugiat
+                consectetur quisquam asperiores necessitatibus, ducimus ab tenetur nam. Amet asperiores neque illo
+                molestias
+                vitae sit pariatur dicta.</div>
+            <div>Fugiat earum nobis debitis dicta dolores eaque odit veritatis, ab at dolorum repellendus veniam esse,
+                corrupti sint aspernatur fugit, assumenda totam consequatur labore nihil tempore. Numquam velit facilis
+                debitis ipsum.</div>
+            <div>Vitae consectetur, voluptate iure explicabo voluptas reprehenderit non placeat earum possimus ipsam nam
+                voluptatem laborum assumenda ex eaque eos dicta consequatur perferendis. Ad, hic repellat recusandae
+                doloribus nisi necessitatibus! Praesentium!</div>
+            <div>Porro est sint, quis, tempore cum a error quaerat voluptatibus, voluptatem excepturi placeat illo.
+                Commodi
+                a tempora porro adipisci consectetur illo earum deleniti iure tenetur consequatur. Eveniet tempora aut
+                culpa.</div>
+            <div>Illo, eligendi voluptas perferendis animi at fuga adipisci eveniet error maiores. Ex natus cupiditate
+                accusantium esse cumque expedita autem eaque facilis. Facilis, fugit tempore dolore quasi tempora earum
+                minus totam?</div>
         </footer>
     </div>
 
