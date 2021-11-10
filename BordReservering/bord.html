@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start</title>
+    <link rel="stylesheet" href="bord.css">
+</head>
+
+<body>
+
+    <main>
+        <section class="form bruker">
+            <div><label>Navn    <input type="text" id="navn"></label></div>
+            <div><label>Adresse <input type="text" id="adresse"></label></div>
+            <div><label>Epost   <input type="text" id="epost"></label></div>
+        </section>
+        <section class="form velg">
+            <div><label>Velg bord
+                <select name="" id="bord">
+                    <option>bord1</option>
+                    <option>bord2</option>
+                    <option>bord3</option>
+                    <option>bord4</option>
+                </select></label></div>
+            <div><label>Velg matrett
+                <select name="" id="matrett">
+                    <option>chilli</option>
+                    <option>flyndre</option>
+                    <option>kalvesteik</option>
+                </select></label></div>
+        </section>
+        <section class="bestill">
+            <div><button type="button" id="bestill">Bestill</button></div>
+        </section>
+        <section
+        id="bestilling" class="bestilling">
+            Dine valg
+            <p> {navn} {adresse} {epost} </p>
+            <p>{bord} {matrett}</p>
+        </section>
+        
+    </main>
+   
+    <script type="module">
+        import {} from "./bord.js";
+    </script>
+</body>
+
+</html>
