@@ -1,0 +1,52 @@
+:root {
+    --bordfarge:tan;
+    --kvit:white;
+    --svart:black;
+    --ruteDim:calc(600px / 8)
+}
+
+body {
+    background-color: var(--bordfarge);
+}
+
+.rute {
+    position: relative;
+    width: var(--ruteDim);
+    height: var(--ruteDim);
+    border: solid gray 1px;
+}
+.rute.svart {
+    background-color: var(--svart);
+}
+.rute.kvit {
+    background-color: var(--kvit);
+}
+
+#brett {
+    width: calc((var(--ruteDim) + 2px) * 8);
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+}
+
+.rute.bonde::before {
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 12px;
+    height: 4px;
+    content: "";
+    display: block;
+    background-color: green;
+}
+
+.rute.bonde::after {
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 12px;
+    height: 4px;
+    content: "";
+    display: block;
+    background-color: green;
+    border-radius: 50%;
+}
