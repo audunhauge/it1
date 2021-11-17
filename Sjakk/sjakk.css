@@ -30,10 +30,10 @@ body {
 
 .rute.bonde::before {
     position: absolute;
-    left: 0;
-    top:0;
-    width: 12px;
-    height: 4px;
+    left: 10px;
+    top:45px;
+    width: 50px;
+    height: 20px;
     content: "";
     display: block;
     background-color: green;
@@ -41,10 +41,10 @@ body {
 
 .rute.bonde::after {
     position: absolute;
-    right: 0;
-    top:0;
-    width: 12px;
-    height: 4px;
+    right: 20px;
+    top:8px;
+    width: 40px;
+    height: 40px;
     content: "";
     display: block;
     background-color: green;

@@ -17,7 +17,7 @@ for (let i=0; i<64; i += 1) {
   } else {
     rute.className = "rute svart";
   }
-  if (i<8) {
+  if (i<16 && i>7) {
       rute.className += " bonde";
   }
 
