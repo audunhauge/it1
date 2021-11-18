@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    color:white;
+}
+
+#rutenett > div {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.rute.mente {
+    background-color:rgb(213, 216, 181);
+}
+.rute.nr2, .rute.nr1 {
+    background-color:lightgray;
+}
+.rute.sum {
+    background-color:rgb(195, 221, 194);
+}
+
+#add {
+    --pos:0;
+    position: absolute;
+    left:calc(400px - var(--pos) * (400px / 5) );
+    top:200px;
+}
+
+.rute {
+    width:1.5rem;
+    height: 1.5rem;
+    background-color: lightgray;
+    margin:4px;
+    color: black;
+}
+
+section {
+    display: grid;
+    grid-template-areas: 
+    "input alg";
+}
+
+#algoritme {
+    overflow: hidden;
+    position: relative;
+    grid-area: alg;
+    width:30rem;
+    height: 20rem;
+    background-color: slategrey;
+    opacity: 0;
+    padding: 10px;
+}
