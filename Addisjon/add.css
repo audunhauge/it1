@@ -22,7 +22,7 @@ body {
     --pos:0;
     position: absolute;
     left:calc(400px - var(--pos) * (400px / 5) );
-    top:200px;
+    top:230px;
 }
 
 .rute {

@@ -3,29 +3,38 @@ import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
 
 const web = updateMyProperties();
 
+web.pos = 0;
+
+
 
 const { vis, algoritme, add } = thingsWithId();
 
 vis.onclick = () => {
-    if (web.t1 === undefined || web.t2 === undefined) return;
-    web.siffer = 0;
-    algoritme.style.opacity = "1";
-    //web.c0 = "";web.c1 = "";web.c2 = "";web.c3 = "";web.c4 = "";web.c5 = "";
-    //web.s0 = "";web.s1 = "";web.s2 = "";web.s3 = "";web.s4 = "";web.s5 = "";
-    const [n0,n1,n2,n3,n4,n5] = Array.from(web.t1).reverse();
-    Object.assign(web,{n0,n1,n2,n3,n4,n5});
-    const [m0,m1,m2,m3,m4,m5] = Array.from(web.t2).reverse();
-    Object.assign(web,{m0,m1,m2,m3,m4,m5});
+    if (Number(web.t1) > 0 && Number(web.t2) > 0) {
+        algoritme.style.opacity = "1";
+        web.siffer = 0;
+        const siffer1 = Array.from(web.t1).reverse();
+        const siffer2 = Array.from(web.t2).reverse();
+        web.n0 = siffer1[0] || "";
+        web.n1 = siffer1[1] || "";
+        web.n2 = siffer1[2] || "";
+        web.n3 = siffer1[3] || "";
+        web.n4 = siffer1[4] || "";
+        
+        web.m0 = siffer2[0] || "";
+        web.m1 = siffer2[1] || "";
+        web.m2 = siffer2[2] || "";
+        web.m3 = siffer2[3] || "";
+        web.m4 = siffer2[4] || "";
+
+    }   
 }
 
 add.onclick = () => {
-    const siffer = web.siffer;
-    const a = Number(web["n"+siffer]) || 0;
-    const b = Number(web["m"+siffer]) || 0;
-    const c = Number(web["c"+siffer]) || 0;
-    const sum = a+b+c;
-    const [x,y] = Array.from(String(sum)).reverse();
-    web["s"+siffer] = x;
-    web["c"+(siffer+1)] = y || 0;
+    const s = web.siffer;
+    const nr1 = Number(web["n"+s]);  
+    const nr2 = Number(web["m"+s]);
+    const sum = nr1 + nr2;
+    web["s"+s] = sum;  
     web.siffer++;
 }
