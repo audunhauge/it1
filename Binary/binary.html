@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binærtall</title>
+    <link rel="stylesheet" href="binary.css">
+</head>
+<body>
+    <main>
+        <section>
+            <div>
+                <h3>Algoritme for binærtall</h3>
+                <div><label>Skriv inn tall <input type="text" id="t1"></label></div>
+                <div><button id="vis" type="button">Vis metode</button></div>
+            </div>
+            <div id="algoritme">
+                <h3>metode</h3>
+                <div> {n}  som er {n.toString(16)} i hexadesimal </div>
+                <div id="forklaring">
+                    Vi deler {n} på 2 og får {n  % 2} som rest.
+                    Derfor blir sifferet {n % 2}.
+                </div>
+                <div id="rutenett">
+                    <div id="sum">
+                        <div class="rute">{s5}</div>
+                        <div class="rute">{s4}</div>
+                        <div class="rute">{s3}</div>
+                        <div class="rute">{s2}</div>
+                        <div class="rute">{s1}</div>
+                        <div class="rute">{s0}</div>
+                    </div>
+                </div>
+                <div><button id="add" stil="--pos:{siffer}" type="button">Siffer</button></div>
+            </div>
+        </section>
+    </main>
+    
+    <script type="module">
+        import {} from "./binary.js";
+    </script>
+</body>
+</html>
