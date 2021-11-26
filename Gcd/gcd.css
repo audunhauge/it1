@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+    color:white;
+}
+
+
+section {
+    display: grid;
+    grid-template-areas: 
+    "input alg";
+}
+
+#algoritme {
+    overflow: hidden;
+    position: relative;
+    grid-area: alg;
+    width:30rem;
+    height: 20rem;
+    background-color: slategrey;
+    opacity: 0;
+    padding: 10px;
+}
