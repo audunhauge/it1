@@ -1,0 +1,29 @@
+
+
+body {
+    
+}
+
+#adder {
+    position: relative;
+}
+
+#ia,#ib,#ic {
+    position: absolute;
+}
+
+#ia {
+    left:100px;
+    top:170px;
+}
+#ib {
+    left:100px;
+    top:362px;
+}
+#ic {
+    left:590px;
+    top:278px;
+}
+
+
+
