@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Binærtall</title>
     <link rel="stylesheet" href="binary.css">
 </head>
+
 <body>
     <main>
         <section>
@@ -17,28 +19,23 @@
             </div>
             <div id="algoritme">
                 <h3>metode</h3>
-                <div> {n}  som er {n.toString(16)} i hexadesimal </div>
-                <div id="forklaring">
-                    Vi deler {n} på 2 og får {n  % 2} som rest.
-                    Derfor blir sifferet {n % 2}.
+                <div> Vi har tallet <b>{n}</b> som er <b>{n.toString(16).toUpperCase()}</b> i hexadesimal </div>
+                <div id="forklaring" stil="{skjulmeg}">
+                    Vi deler {n} på 2 og får {n % 2} som rest. Derfor blir sifferet {n % 2}.
                 </div>
                 <div id="rutenett">
-                    <div id="sum">
-                        <div class="rute">{s5}</div>
-                        <div class="rute">{s4}</div>
-                        <div class="rute">{s3}</div>
-                        <div class="rute">{s2}</div>
-                        <div class="rute">{s1}</div>
-                        <div class="rute">{s0}</div>
+                    <div repeat id="numba">
+                        <div data-pow="{2**i}" class="rute">{s}</div>
                     </div>
                 </div>
                 <div><button id="add" stil="--pos:{siffer}" type="button">Siffer</button></div>
             </div>
         </section>
     </main>
-    
+
     <script type="module">
         import {} from "./binary.js";
     </script>
 </body>
+
 </html>

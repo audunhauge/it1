@@ -1,43 +1,89 @@
-body {
-    background-color: black;
-    color:white;
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-#rutenett > div {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: calc(1em + 0.5rem);
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+#numba {
+    display: flex;
+    flex-direction: row-reverse;  /* den siste blir den første */
+    column-gap: 2px;
 }
 
 .rute {
-    background-color:rgb(195, 221, 194);
+    background-color: rgb(195, 221, 194);
 }
 
 #add {
-    --pos:0;
+    --pos: 0;
     position: absolute;
-    left:calc(400px - var(--pos) * (400px / 5) );
-    top:230px;
+    left: calc(420px - var(--pos) * (1.5rem + 2px));
+    top: 230px;
 }
 
 .rute {
-    width:1.5rem;
+    position: relative;
+    width: 1.5rem;
     height: 1.5rem;
     background-color: lightgray;
-    margin:4px;
     color: black;
+    text-align: center;
+}
+
+.rute::after {
+    font-size: 0.8rem;
+    content: attr(data-pow);
+    position: absolute;
+    right: 2px;
+    top: -18px;
+    color: white;
 }
 
 section {
+    margin: 2rem;
     display: grid;
-    grid-template-areas: 
-    "input alg";
+    grid-template-areas: "input alg";
+}
+
+section > div > div {
+    margin: 4px;
+    padding: 4px;
 }
 
 #algoritme {
     overflow: hidden;
     position: relative;
     grid-area: alg;
-    width:30rem;
+    width: 30rem;
     height: 20rem;
     background-color: #123456;
     opacity: 0;
