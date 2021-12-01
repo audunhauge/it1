@@ -23,3 +23,33 @@ img, picture, video, canvas, svg {
 input, button, textarea, select {
     font: inherit;
 }
+
+#first {
+    position: absolute;
+    top:0;
+    left:0;
+    width:200px;
+    height: 200px;
+}
+
+.ia, .ib, .ic, .is {
+    position: absolute;
+}
+
+.ia {
+    left:45px;
+    top:20px;
+}
+.ib {
+    left:10px;
+    top:45px;
+}
+.ic {
+    left:125px;
+    top:75px;
+}
+
+.is {
+    left:175px;
+    top:36px;
+}

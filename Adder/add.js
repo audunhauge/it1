@@ -10,5 +10,5 @@ const web = updateMyProperties();
 const { /** ting på websida med id */ } = thingsWithId();
 
 // nullstiller alle binære verdier
-[..."abcdefgh"].forEach(k => web[k] = 0);
+fill(0);
 

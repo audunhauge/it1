@@ -11,7 +11,44 @@
 
 <body>
 
-    
+    <div id="adder">
+        <div id="tegning">
+            <svg width="400" height="650">
+                <g>
+                    <g id="halfadd" stroke="#000" font-size="16" fill="#fff">
+                        <line y2="32" x2="105" y1="31" x1="73"></line>
+                        <line y2="57" x2="106" y1="57" x1="41.5"></line>
+                        <line y2="48" x2="171" y1="48" x1="148"></line>
+                        <line y2="100" x2="120" y1="50" x1="120"></line>
+                        <line y2="0" x2="120" y1="50" x1="120"></line>
+                        <rect height="64" width="50" y="16" x="105" ></rect>
+                        <g fill="#000" stroke-width="0">
+                            <text y="35" x="110">a</text>
+                            <text y="60" x="110">b</text>
+                            <text y="50" x="146">s</text>
+                            <text y="75" x="115">c</text>
+                        </g>
+                    </g>
+                    <use href="#halfadd" x="0" y="80"></use>
+                    <use href="#halfadd" x="0" y="160"></use>
+                    <use href="#halfadd" x="0" y="240"></use>
+                    <use href="#halfadd" x="0" y="320"></use>
+                    <use href="#halfadd" x="0" y="400"></use>
+                    <use href="#halfadd" x="0" y="480"></use>
+                    <use href="#halfadd" x="0" y="560"></use>
+                </g>
+            </svg>
+
+            <div id="first">
+                <div class="ia">{a?1:0} <input type="checkbox" id="a"></div>
+                <div class="ib">{b?1:0} <input type="checkbox" id="b"></div>
+                <div class="ic"> {c1:=(a&&b)?1:0}</div>
+                <div class="is"> {s1:=a!=b?1:0}</div>
+            </div>
+
+        </div>
+    </div>
+
     <script type="module">
         import { } from "./add.js";
     </script>
