@@ -1,28 +1,68 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
 
 body {
-    
+    line-height: calc(1em + 0.5rem);
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
 }
 
 #adder {
     position: relative;
 }
 
-#ia,#ib,#ic {
+#first,#second,#third,#fourth {
+    position: absolute;
+    height: 80px;
+    width: 100px;
+    top:0;
+    left:0;
+}
+
+#second { top:80px; }
+#third  { top:160px; }
+#fourth { top:240px; }
+
+.ia,.ib,.ic,.is {
     position: absolute;
 }
 
-#ia {
-    left:100px;
-    top:170px;
+.ia {
+    left:57px;
+    top:20px;
 }
-#ib {
-    left:100px;
-    top:362px;
+.ib {
+    left:24px;
+    top:46px;
 }
-#ic {
-    left:590px;
-    top:278px;
+.ic {
+    left:124px;
+    top:76px;
+}
+.is {
+    left:178px;
+    top:38px;
 }
 
 

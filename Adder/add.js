@@ -1,5 +1,5 @@
 // @ts-check
-import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
+import { updateMyProperties, thingsWithId, fill } from "../lib/Minos.js";
 
 const web = updateMyProperties();
 /** web vil ha en web.xx og web.zz   gitt: <div>{xx} <input name="zz"> {zz} </div>
@@ -8,3 +8,7 @@ const web = updateMyProperties();
  */
 
 const { /** ting på websida med id */ } = thingsWithId();
+
+// nullstiller alle binære verdier
+[..."abcdefgh"].forEach(k => web[k] = 0);
+
