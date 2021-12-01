@@ -11,53 +11,7 @@
 
 <body>
 
-    <div id="adder">
-        <div id="tegning">
-            <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-                <g>
-                    <g id="halfadd">
-                        <line stroke="#000" y2="32" x2="105" y1="31" x1="73" />
-                        <line stroke="#000" y2="57" x2="106" y1="57" x1="41.5" />
-                        <line stroke="#000" y2="48" x2="171" y1="48" x1="148" />
-                        <line stroke="#000" y2="100" x2="120" y1="50" x1="120" />
-                        <line stroke="#000" y2="0" x2="120" y1="50" x1="120" />
-                        <rect stroke="#000" height="64" width="50" y="16" x="105" fill="#fff" />
-                        <text font-size="16" y="35" x="110" stroke-width="0">a</text>
-                        <text font-size="16" y="60" x="110" stroke-width="0">b</text>
-                        <text font-size="16" y="50" x="140" stroke-width="0">s</text>
-                        <text font-size="16" y="75" x="115" stroke-width="0">c</text>
-                    </g>
-                    <use href="#halfadd" x="0" y="80" />
-                    <use href="#halfadd" x="0" y="160" />
-                    <use href="#halfadd" x="0" y="240" />
-                </g>
-            </svg>
-        </div>
-        <div id="first">
-            <div class="ia">{a?1:0} <input type="checkbox" id="a"></div>
-            <div class="ib">{b?1:0} <input type="checkbox" id="b"></div>
-            <div class="ic"> {c1:=(a&&b)?1:0}</div>
-            <div class="is"> {s1:=a!=b?1:0}</div>
-        </div>
-        <div id="second">
-            <div class="ia">{c?1:0} <input type="checkbox" id="c"></div>
-            <div class="ib">{d?1:0} <input type="checkbox" id="d"></div>
-            <div class="is"> {s2:=(c!=d)!=c1?1:0}</div>
-            <div class="ic"> {c2:=(c&&d || (c1 && (c||d)))?1:0}</div>
-        </div>
-        <div id="third">
-            <div class="ia">{e?1:0} <input type="checkbox" id="e"></div>
-            <div class="ib">{f?1:0} <input type="checkbox" id="f"></div>
-            <div class="is"> {s3:=(e!=f)!=c2?1:0}</div>
-            <div class="ic"> {c3:=(e&&f || (c2 && (e||f)))?1:0}</div>
-        </div>
-        <div id="fourth">
-            <div class="ia">{g?1:0} <input type="checkbox" id="g"></div>
-            <div class="ib">{h?1:0} <input type="checkbox" id="h"></div>
-            <div class="is"> {s4:=(g!=h)!=c3?1:0}</div>
-            <div class="ic"> {c4:=(g&&h || (c3 && (g||h)))?1:0}</div>
-        </div>
-    </div>
+    
     <script type="module">
         import { } from "./add.js";
     </script>
