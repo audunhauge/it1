@@ -24,12 +24,16 @@ input, button, textarea, select {
     font: inherit;
 }
 
-#first {
+#first, #second {
     position: absolute;
     top:0;
     left:0;
     width:200px;
     height: 200px;
+}
+
+#second {
+    top:80px;
 }
 
 .ia, .ib, .ic, .is {
