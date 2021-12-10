@@ -1,27 +1,24 @@
 // @ts-check
-import { updateMyProperties, thingsWithId } from "../lib/Minos.js";
+import { updateMyProperties, thingsWithId, shuffle } from "../lib/Minos.js";
 
 const web = updateMyProperties();
-/** web vil ha en web.xx og web.zz   gitt: <div>{xx} <input name="zz"> {zz} </div>
- * disse vil automatisk oppdateres, web.xx = 1 => {xx} erstattes med 1
- * endring av input oppdaterer web.zz og {zz} (og omvendt)
- */
 
-const { /** ting på websida med id */ } = thingsWithId();
+const juleTall = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+    13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]);
 
-const lukeplass = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-for (let i = 1; i < 25; i++) {
-    let opptatt = true;
-    while (opptatt) {
-        const plass = Math.trunc(Math.random() * 24);
-        if (lukeplass[plass] === 0) {
-            lukeplass[plass] = i;
-            opptatt = false;
-        }
-    }
-}
-const lukene = document.querySelectorAll(".luke");
+const bilder = ["🤡", "💫", "💥", "🙇‍♀️", "🧞", "👯", "🏇"];
+
+const { kalender } = thingsWithId();
+
 for (let i = 0; i < 24; i++) {
-    const luka = lukene[i];
-    luka.innerHTML = String(lukeplass[i]);
+    const nr = juleTall[i];
+    web.kalender.push({ nr });
+}
+
+kalender.onclick = (e) => {
+    const t = e.target;
+    if (t.className === "luke") {
+        const idx = Math.trunc(Math.random() * 7);
+        t.innerHTML = bilder[idx];
+    }
 }
