@@ -9,5 +9,15 @@
     height: 1.5rem;
     width: 6rem;
     text-align: center;
-    padding-top:5px;
+    padding-top:2px;
+    font-size: 2rem;
+}
+.timerad {
+    width: 60rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.timerad > div {
+    text-align: center;
+    border:solid black 1px;
 }
