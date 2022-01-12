@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>faktura</title>
+    <link rel="stylesheet" href="faktura.css">
+</head>
+<body>
+    <div id="gui">
+        <div>
+            <input type="range" id="opacity" min="0" max="100"> {opacity}
+        </div>
+    </div>
+
+    <div id="faktura" stil="opacity:{opacity/100}">
+
+    </div>
+
+    <div id="minfak" stil="opacity:{1-opacity/100}">
+        <div id="retur">
+
+        </div>
+        <div id="kunde">
+
+        </div>
+        <div id="forfall">
+
+        </div>
+        <div id="faknr">
+
+        </div>
+        <div id="fakturaheader">
+            FAKTURA
+        </div>
+        <div id="spesifikasjon">
+            <div id="tittel">
+                Hjortejakt
+            </div>
+            <div id="linjeheader">
+                Beskrivelse
+            </div>
+            <div id="linjer">
+                
+                <div id="div">Hjortejakt</div>
+                
+                
+            </div>
+            <div id="oppsummering">
+                <div class="col2num">
+                    <div>
+                        <div>Netto</div> 
+                        <div>16 000,00</div>
+                    </div>
+                    <div>
+                        <div>Mva</div> 
+                        <div>4 000,00</div>
+                    </div>
+                    <div>
+                        <div>Å betale</div> 
+                        <div>20 000,00</div>
+                    </div>
+                </div>
+                <div class="merknad">
+                    Alle beløp er oppgitt i NOK
+                </div>
+                
+            </div>
+        </div>
+       
+    </div>
+
+    <script type="module">
+        import {} from "./faktura.js";
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+#faktura {
+    width:794px;
+    height: 1122px;
+    background-image: url("faktura.png");
+    background-size: contain;
+    border: solid green 1px;
+}
+
+#minfak {
+    width:794px;
+    height: 1122px;
+    outline: solid gray 1px;
+    position: absolute;
+    top:30px;
+    left:10px;
+}
+
+#minfak > div {
+    position: absolute;
+}
+
+#retur {
+    width:16rem;
+    height: 4rem;
+    border: solid gray 1px;
+    top:40px;
+    left:50px;
+}
+#kunde {
+    width:16rem;
+    height: 5rem;
+    border: solid gray 1px;
+    top:120px;
+    left:50px; 
+}
+#forfall {
+    width:21rem;
+    height: 72px;
+    border: solid gray 1px;
+    top:120px;
+    left:420px; 
+}
+#faknr {
+    width:21rem;
+    height: 82px;
+    border: solid gray 1px;
+    top:200px;
+    left:420px; 
+}
+#fakturaheader {
+    width:16rem;
+    height: 1rem;
+    border: solid gray 1px;
+    top:270px;
+    left:50px; 
+}
+#spesifikasjon {
+    width:710px;
+    border: solid gray 1px;
+    top:320px;
+    left:50px; 
+    padding-bottom: 9rem;
+}
+#tittel {
+    position: relative;
+    left:10px;
+    top:5px;
+}
+#linjeheader {
+    position: relative;
+    left:10px;
+    top:25px;
+}
+#linjer {
+    position: relative;
+    left:10px;
+    top:45px; 
+}
+#oppsummering {
+    position: absolute;
+    width:12rem;
+    right:30px;
+    bottom:0px; 
+    font-size: 1rem;
+}
+.merknad {
+   font-size: 0.8rem;
+   font-style: italic;
+   padding-top:8px;
+   text-align: right;
+}
+
+.col2num > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.col2num > div  > div {
+    text-align: right;
+}
