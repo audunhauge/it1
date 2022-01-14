@@ -13,76 +13,66 @@
     position: absolute;
     top:30px;
     left:10px;
+    font-family: 'Arial', Courier, Sans-Serif; 
 }
 
 #minfak > div {
     position: absolute;
 }
 
-#retur {
-    width:16rem;
-    height: 4rem;
-    border: solid gray 1px;
-    top:40px;
-    left:50px;
+.medtall > div  {
+    display: grid;
+    grid-template-columns: 12fr 12fr;
 }
+
+
+.medtall > div > span:last-child {
+  text-align: left;
+}
+
+.tekstboks {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 15rem;
+    line-height: 1rem;
+    padding:2px;
+}
+
 #kunde {
-    width:16rem;
-    height: 5rem;
-    border: solid gray 1px;
-    top:120px;
-    left:50px; 
+    left:54px;
+    top:132px;
 }
-#forfall {
-    width:21rem;
-    height: 72px;
-    border: solid gray 1px;
-    top:120px;
-    left:420px; 
-}
+
 #faknr {
-    width:21rem;
-    height: 82px;
-    border: solid gray 1px;
-    top:200px;
-    left:420px; 
+    width:18rem;
+    left:434px;
+    top:204px;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
 }
-#fakturaheader {
-    width:16rem;
-    height: 1rem;
-    border: solid gray 1px;
-    top:270px;
-    left:50px; 
+
+#retur {
+    left:54px;
+    top:42px;
+    line-height: 0.8rem;
+    font-size: 0.8rem;
 }
-#spesifikasjon {
-    width:710px;
-    border: solid gray 1px;
-    top:320px;
-    left:50px; 
-    padding-bottom: 9rem;
+
+#forfall {
+    left:425px;
+    top:125px;
+    padding:0.6rem;
+    background-color: rgba(211, 211, 211, 0.249);
+    width: 19rem;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
 }
-#tittel {
-    position: relative;
-    left:10px;
-    top:5px;
+
+#forfall div > span:first-child {
+    font-weight: bold;
 }
-#linjeheader {
-    position: relative;
-    left:10px;
-    top:25px;
-}
-#linjer {
-    position: relative;
-    left:10px;
-    top:45px; 
-}
-#oppsummering {
-    position: absolute;
-    width:12rem;
-    right:30px;
-    bottom:0px; 
-    font-size: 1rem;
-}
+
+
 .merknad {
    font-size: 0.8rem;
    font-style: italic;
