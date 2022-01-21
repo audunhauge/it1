@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vareliste</title>
+</head>
+<body>
+    <div id="gui">
+        <div id="skriv">
+            <div><label>Vare<input type="text" id="vare"></label></div>
+            <div><label>Pris<input type="text" id="pris"></label></div>
+            <div><button type="button" id="lagre">Lagre</button></div>
+        </div>
+        <div repeat id="liste">
+            <div>
+                Varenavn: {vare} 
+                Pris: {pris}
+            </div>
+        </div>
+        <script type="module">
+            import "./vare.js";
+        </script>
+
+    </div>
+</body>
+</html>

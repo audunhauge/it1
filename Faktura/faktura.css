@@ -26,9 +26,10 @@
 }
 
 
-.medtall > div > span:last-child {
-  text-align: left;
+.medtall > div > span {
+  text-align: right;
 }
+
 
 .tekstboks {
     display: grid;
@@ -38,9 +39,18 @@
     padding:2px;
 }
 
+
 #kunde {
     left:54px;
     top:132px;
+}
+
+#netto {
+    width:12rem;
+    left:524px;
+    top:444px;
+    font-size: 0.8rem;
+    line-height: 1rem;
 }
 
 #faknr {

@@ -11,11 +11,11 @@ const { minfak } = thingsWithId();
 
 web.opacity = 50;
 
-function tekstlinjer(tekst,id) {
+function tekstlinjer(tekst, id) {
     const linjer = tekst.split(";");
     const div = create("div");
     let s = "";
-    for (let i=0; i<linjer.length; i++) {
+    for (let i = 0; i < linjer.length; i++) {
         const linje = linjer[i];
         s += `<div>${linje}</div>`;
     }
@@ -25,23 +25,26 @@ function tekstlinjer(tekst,id) {
     return div;
 }
 
-function tekstOgTall(tekst,id) {
+function tekstOgTall(tekst, id, ekstraKlasse = "") {
     const linjer = tekst.split(";");
     const div = create("div");
     let s = "";
-    for (let i=0; i<linjer.length; i++) {
+    for (let i = 0; i < linjer.length; i++) {
         const linje = linjer[i];
-        const [tex,tall] = linje.split("#");
+        const [tex, tall] = linje.split("#");
         s += `<div><span>${tex}</span><span>${tall}<span></div>`;
     }
     div.innerHTML = s;
-    div.className = "tekstboks medtall";
+    div.className = `tekstboks ${ekstraKlasse}`;
     div.id = id;
     return div;
 }
 
-minfak.append(tekstlinjer("Retur:;Fiken-demo;testv;1234 OSLO","retur"));
-minfak.append(tekstlinjer("Nota Ing Notøy;Gusta 6a;6028 GURSKEN","kunde"));
+minfak.append(tekstlinjer("Retur:;Fiken-demo;testv;1234 OSLO", "retur"));
+minfak.append(tekstlinjer("Nota Ing Notøy;Gusta 6a;6028 GURSKEN", "kunde"));
 
-minfak.append(tekstOgTall("Forfallsdato#19.01.20222;Kontonr.#1234 56 78903;Å betale#20 000.00","forfall"));
-minfak.append(tekstOgTall("Fakturanr#222;Dato#05.01.2022;Kundenr#10002","faknr"));
+minfak.append(tekstOgTall("Forfallsdato#19.01.20222;Kontonr.#1234 56 78903;Å betale#20 000.00", "forfall"));
+minfak.append(tekstOgTall("Fakturanr#222;Dato#05.01.2022;Kundenr#10002", "faknr"));
+
+
+minfak.append(tekstOgTall("Netto#16 000.00;Mva#4 000.00;Å betale#20 000.00", "netto","medtall"));
