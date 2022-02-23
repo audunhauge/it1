@@ -8,16 +8,10 @@
     <link rel="stylesheet" href="faktura.css">
 </head>
 <body>
-    <div id="gui">
-        <div>
-            <input type="range" id="opacity" min="0" max="100"> {opacity}
-        </div>
+    <div id="gui" class="gui">
+        <div><label><button type="button" id="neste">Neste fak</button></label></div>
+        <div> Faktura nr: {fakturanummer} </div>
     </div>
-
-    <div id="faktura" stil="opacity:{opacity/100}">
-
-    </div>
-
     <div id="minfak" stil="opacity:{1-opacity/100}">
        
     </div>
