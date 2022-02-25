@@ -1,0 +1,66 @@
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #disp {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/three-spritetext"></script>
+
+    <script src="//unpkg.com/3d-force-graph"></script>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <div id="disp"></div>
+
+    <script>
+        const initData = {
+            nodes: [
+                { id: "ole",   group:1 },
+                { id: "per",   group:1 },
+                { id: "anna",  group:2 },
+                { id: "lise",  group:2 },
+                { id: "olga",  group:2 },
+                { id: "trond", group:1 },
+        ],
+            links: [
+            {source: "ole",     target: "anna",  value:1   },
+            {source: "ole",     target: "lise",  value:1   },
+            {source: "per",     target: "anna",  value:2   },
+            {source: "trond",   target: "anna",  value:5   },
+            {source: "anna",    target: "trond", value:4   },
+            {source: "lise",    target: "per",   value:1   },
+            {source: "olga",    target: "ole",   value:1   },
+            {source: "olga",    target: "per",   value:3   },
+            ]
+        };
+        const Graph = ForceGraph3D()
+            (document.getElementById('disp'))
+            //.jsonUrl('./filer.json')
+            .graphData(initData)
+            .nodeAutoColorBy('group')
+            .linkDirectionalParticles("value")
+            .linkDirectionalParticleSpeed(d => 0.002)
+            .onNodeClick(node => {
+                alert(node.id);
+            })
+            .nodeThreeObject(node => {
+                const sprite = new SpriteText(node.id);
+                sprite.material.depthWrite = false; // make sprite background transparent
+                sprite.color = node.color;
+                sprite.textHeight = 8;
+                return sprite;
+            });
+
+        // Spread nodes a little wider
+        //Graph.d3Force('charge').strength(-120);
+
+    </script>
+</body>

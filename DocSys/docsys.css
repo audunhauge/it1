@@ -1,0 +1,28 @@
+svg {
+    width: 500px;
+    border: solid green 1px;
+    font-size: 22px;
+}
+
+svg.stable {
+    background-color: rgba(216, 191, 216, 0.062);
+}
+
+svg text {
+    fill:transparent;
+    pointer-events: none;
+}
+svg circle {
+    fill:rgba(10,10,10,0.1);
+    stroke:gray;
+}
+
+svg circle:hover + text {
+    fill:rgba(0, 0, 255, 0.938);
+}
+
+svg circle:hover {
+    stroke: darkblue;
+    fill:lightgreen;
+}
+

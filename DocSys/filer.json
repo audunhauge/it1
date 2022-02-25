@@ -1,0 +1,13 @@
+{
+    "nodes": [
+      {"id": "test.doc", "group": 1},
+      {"id": "test.pdf", "group": 1},
+      {"id": "readme.doc", "group": 2},
+      {"id": "best.docx", "group": 2}
+    ],
+    "links": [
+      {"source": "test.doc", "target": "test.pdf", "value": 1},
+      {"source": "test.doc", "target": "readme.doc", "value": 8},
+      {"source": "best.docx", "target": "readme.doc", "value": 10}
+    ]
+  }
