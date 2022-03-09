@@ -24,24 +24,26 @@
         const { floor } = Math;
         const initData = {
             nodes: [
-                { id: "kina",       gdp:1472 },
-                { id: "usa",        gdp:2094 },
-                { id: "japan",      gdp:506 },
-               
-        ],
+                { id: "kina", gdp: 1472 },
+                { id: "usa", gdp: 2094 },
+                { id: "japan", gdp: 506 },
+
+            ],
             links: [
-            {source: "kina",       target: "usa",    value:30   },
-            {source: "usa",       target: "kina",    value:10   },
-            {source: "kina",     target: "japan",    value:8   },
-            {source: "usa",     target: "japan",    value:15   },
+                { source: "kina", target: "usa", value: 30,curvature: 0.8, rotation: Math.PI * 1 / 6  },
+                { source: "usa", target: "kina", value: 10, curvature: 0.8, rotation: Math.PI * 1 / 4 },
+                { source: "kina", target: "japan", value: 8,curvature: 0.4, rotation: Math.PI * 1 / 3  },
+                { source: "usa", target: "japan", value: 15,curvature: 0.4, rotation: Math.PI * 1 / 2  },
             ]
         };
         const Graph = ForceGraph3D()
             (document.getElementById('disp'))
             //.jsonUrl('./filer.json')
             .graphData(initData)
-            .nodeAutoColorBy(d => floor(Number(d.gdp/10)) )
+            .nodeAutoColorBy(d => floor(Number(d.gdp / 10)))
             .linkDirectionalParticles("value")
+            .linkCurvature('curvature')
+            .linkCurveRotation('rotation')
             .linkDirectionalParticleSpeed(d => 0.002)
             .onNodeClick(node => {
                 alert(node.id);
