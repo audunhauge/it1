@@ -24,33 +24,23 @@
         const { floor } = Math;
         const initData = {
             nodes: [
-                { id: "audun",      fd:1963 },
-                { id: "sigmund",    fd:1924 },
-                { id: "sigmund jr", fd:1961 },
-                { id: "ida",        fd:1927 },
-                { id: "ola",        fd:1867 },
-                { id: "frank",      fd:1856 },
-                { id: "ada",        fd:1867 },
-                { id: "anna",       fd:1870 },
-                { id: "torger",     fd:1814 },
+                { id: "kina",       gdp:1472 },
+                { id: "usa",        gdp:2094 },
+                { id: "japan",      gdp:506 },
+               
         ],
             links: [
-            {source: "audun",       target: "sigmund",    value:1   },
-            {source: "sigmund jr",     target: "sigmund",    value:1   },
-            {source: "sigmund jr",     target: "ida",    value:1   },
-            {source: "sigmund",     target: "ola",         value:1   },
-            {source: "ola",     target: "torger",         value:2   },
-            {source: "audun",   target: "ida",         value:15   },
-            {source: "ida",    target: "frank",        value:4   },
-            {source: "ida",    target: "ada",          value:1   },
-            {source: "sigmund",    target: "anna",          value:1   },
+            {source: "kina",       target: "usa",    value:30   },
+            {source: "usa",       target: "kina",    value:10   },
+            {source: "kina",     target: "japan",    value:8   },
+            {source: "usa",     target: "japan",    value:15   },
             ]
         };
         const Graph = ForceGraph3D()
             (document.getElementById('disp'))
             //.jsonUrl('./filer.json')
             .graphData(initData)
-            .nodeAutoColorBy(d => floor(Number(d.fd/10)) )
+            .nodeAutoColorBy(d => floor(Number(d.gdp/10)) )
             .linkDirectionalParticles("value")
             .linkDirectionalParticleSpeed(d => 0.002)
             .onNodeClick(node => {
