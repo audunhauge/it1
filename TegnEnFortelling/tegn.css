@@ -1,0 +1,27 @@
+#editor {
+    height: 80%;
+    width: 100%;
+    border: solid green 1px;
+}
+
+#tegning {
+    width: 90%;
+    height: 80%;
+    border: solid blue 1px;
+}
+
+#main {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    gap:1rem;
+    grid-template-columns: 1fr 2fr;
+}
+
+.fugl {
+    background-image: url("fugl.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5vw;
+    height: 5vh;
+}
