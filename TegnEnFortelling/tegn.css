@@ -18,10 +18,16 @@
     grid-template-columns: 1fr 2fr;
 }
 
+.katt,
+.mann,
 .fugl {
     background-image: url("fugl.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 5vw;
     height: 5vh;
+}
+
+#tegning > div {
+    position: absolute;
 }

@@ -2,6 +2,8 @@
 
 import { updateMyProperties, thingsWithId, create } from "../lib/Minos.js";
 
+import { AST, Figur, parse } from "./Figurer.js";
+
 const web = updateMyProperties();
 /** web vil ha en web.xx og web.zz   gitt: <div>{xx} <input name="zz"> {zz} </div>
  * disse vil automatisk oppdateres, web.xx = 1 => {xx} erstattes med 1
@@ -19,29 +21,23 @@ editor.onkeydown = event => {
         const text = editor.value;
         const linjer = text.split('\n');
         for (const linje of linjer) {
-
-            if (linje.startsWith("fugl")) {
-                // tegn en fuggel
-                tegnEnFuggel();
+            const ast = parse(linje);
+            if (ast.subjects.length === 1) {
+                const s = ast.subjects[0];
+                for (let i = 0; i < ast.antall; i++) {
+                    const actor = new Figur(s);
+                    actor.stage(tegning);
+                    actor.render();
+                }
+            } else {
+                for (const s of ast.subjects) {
+                    const actor = new Figur(s);
+                    actor.stage(tegning);
+                    actor.render();
+                }
             }
 
-            if (linje.startsWith("katt")) {
-                // tegn en fuggel
-                tegnEnKatt();
-            }
 
         }
     }
-}
-
-function tegnEnFuggel() {
-    const div = create("div");
-    div.className = "fugl";
-    tegning.append(div);
-}
-
-function tegnEnKatt() {
-    const div = create("div");
-    div.className = "katt";
-    tegning.append(div);
 }
