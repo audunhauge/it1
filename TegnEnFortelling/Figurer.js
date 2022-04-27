@@ -30,14 +30,18 @@ export class Figur {
     w = 32;
     h = 32;
 
+    scale = 1;
+
+    forsterk = false;
+
     constructor(type) {
         this.type = type;
-        this.x = random() * 300;
+        this.x = random() * 1300;
         if (this.domene() === "himmel") {
-            this.y = random()*100 + 10;
+            this.y = random() * 100 + 10;
         }
         if (this.domene() === "bakke") {
-            this.y = random()*100 + 400;
+            this.y = random() * 100 + 400;
         }
 
     }
@@ -50,14 +54,14 @@ export class Figur {
     }
 
     render() {
-        const { x, y, div } = this;
-        div.style.transform = `translate(${x}px, ${y}px)`;
+        const { x, y, div, scale, forsterk } = this;
+        const skale = forsterk ? scale*scale : scale;
+        div.style.transform = `translate(${x}px, ${y}px) scale(${skale})`;
     }
 
     domene() {
         const { type } = this;
         if ("fuglskysol".includes(type)) return "himmel";
-        // if ("mannguttjentedamehundkatt".includes(type)) return "bakke";
         return "bakke"
     }
 
@@ -67,20 +71,29 @@ const actors = "mann,gutt,dame,jente,hund,katt,fugl".split(",");
 const verbs = "kom,gikk,stod,gående".split(",");
 const adverbs = "langsomt,raskt,hurtig".split(",");
 const scenic = "dag,natt,lyst,mørkt".split(",");
-const adjective = "stor,liten,rosa,røde,blå".split(",");
-const tallord = "en,to,tre".split(",");
+const adjective = "stor,liten,små,rosa,rød,blå,gul,grønn,brun,veldig".split(",");
+const tallord = "en,to,tre,fire,fem,seks,sju,åtte,ni,ti".split(",");
 
 
 
 const stem = word => {
-    if (word.length < 3) return word;
-    if ("mannmenmannenmennene".includes(word)) return "mann";
-    if ("kattkattenkattenekatter".includes(word)) return "katt";
-    if ("guttgutterguttenegutten".includes(word)) return "gutt";
-    if ("fuglfugelenfuglerfuglene".includes(word)) return "fugl";
-    if ("damedamendamenedamer".includes(word)) return "dame";
+    if (word.length < 4) return word;
+    if ("menmannenmennene".includes(word)) return "mann";
+    if ("kattenekatter".includes(word)) return "katt";
+    if ("gutterguttene".includes(word)) return "gutt";
+    if ("fuglerfuglene".includes(word)) return "fugl";
+    if ("damenedamer".includes(word)) return "dame";
     if ("jentejentajentenejenter".includes(word)) return "jente";
-    if ("hundhundenhundehundene".includes(word)) return "hund";
+    if ("hunderhundene".includes(word)) return "hund";
+    if ("gule".includes(word)) return "gul";
+    if ("røde".includes(word)) return "rød";
+    if ("blåe".includes(word)) return "blå";
+    if ("grønne".includes(word)) return "grønn";
+    if ("brune".includes(word)) return "brun";
+    if ("smålitenmini".includes(word)) return "liten";
+    if ("storedigersvære".includes(word)) return "stor";
+    if ("sværtmegajyslakjempenormtbitte".includes(word)) return "veldig";
+    return word;
 }
 
 export const parse = linje => {
@@ -102,8 +115,8 @@ export const parse = linje => {
         if (scenic.includes(w)) {
             ast.scenic.push(w);
         }
-        if (adjective.includes(w)) {
-            ast.adjectiv.push(w);
+        if (adjective.includes(sw)) {
+            ast.adjectiv.push(sw);
         }
         if (tallord.includes(w)) {
             ast.antall = tallord.indexOf(w) + 1;

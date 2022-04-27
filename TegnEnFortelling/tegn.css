@@ -18,6 +18,10 @@
     grid-template-columns: 1fr 2fr;
 }
 
+.dame,
+.jente,
+.gutt,
+.hund,
 .katt,
 .mann,
 .fugl {
@@ -28,6 +32,31 @@
     height: 5vh;
 }
 
+.gutt {
+    background-image: url("gutt.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5vw;
+    height: 12vh;
+}
+
 #tegning > div {
     position: absolute;
 }
+
+.gul {
+    filter: sepia(100%);
+}
+
+.grønn {
+    filter: hue-rotate(290deg);
+}
+
+.rød {
+    filter: hue-rotate(100deg);
+}
+
+.brun {
+    filter: hue-rotate(190deg);
+}
+
