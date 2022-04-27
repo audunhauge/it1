@@ -23,7 +23,6 @@
 .gutt,
 .hund,
 .katt,
-.mann,
 .fugl {
     background-image: url("fugl.png");
     background-size: contain;
@@ -32,6 +31,7 @@
     height: 5vh;
 }
 
+.mann,
 .gutt {
     background-image: url("gutt.png");
     background-size: contain;

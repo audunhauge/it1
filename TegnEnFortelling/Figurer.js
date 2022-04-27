@@ -36,12 +36,12 @@ export class Figur {
 
     constructor(type) {
         this.type = type;
-        this.x = random() * 1300;
+        this.x = random() * 400;
         if (this.domene() === "himmel") {
             this.y = random() * 100 + 10;
         }
         if (this.domene() === "bakke") {
-            this.y = random() * 100 + 400;
+            this.y = random() * 100 + 200;
         }
 
     }
@@ -77,6 +77,8 @@ const tallord = "en,to,tre,fire,fem,seks,sju,åtte,ni,ti".split(",");
 
 
 const stem = word => {
+    if (word.length < 3) return word;
+    if ("småelitenmini".includes(word)) return "liten";
     if (word.length < 4) return word;
     if ("menmannenmennene".includes(word)) return "mann";
     if ("kattenekatter".includes(word)) return "katt";
@@ -90,7 +92,7 @@ const stem = word => {
     if ("blåe".includes(word)) return "blå";
     if ("grønne".includes(word)) return "grønn";
     if ("brune".includes(word)) return "brun";
-    if ("smålitenmini".includes(word)) return "liten";
+    
     if ("storedigersvære".includes(word)) return "stor";
     if ("sværtmegajyslakjempenormtbitte".includes(word)) return "veldig";
     return word;
