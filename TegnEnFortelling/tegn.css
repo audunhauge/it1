@@ -20,11 +20,24 @@
 
 .dame,
 .jente,
-.gutt,
-.hund,
-.katt,
 .fugl {
     background-image: url("fugl.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5vw;
+    height: 5vh;
+}
+
+.hund {
+    background-image: url("hund.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5vw;
+    height: 5vh;
+}
+
+.katt {
+    background-image: url("katt.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 5vw;

@@ -2,6 +2,8 @@
 
 import { create } from "../lib/Minos.js";
 
+import { dimensions, sz } from "./tegn.js";
+
 const { random } = Math;
 
 export class AST {
@@ -13,11 +15,14 @@ export class AST {
         this.adverb = "";
         this.adjectiv = [];
         this.antall = 1;
+        this.posisjon = [];
+        this.pronomen = "";
     }
 }
 
 // antar at grafikken til alle figurer ligger i en sprite
 // det eneste vi lagrer for å vise bilde er x-y offsett for spriten
+
 
 
 export class Figur {
@@ -34,52 +39,72 @@ export class Figur {
 
     forsterk = false;
 
-    constructor(type) {
+    constructor(type,posisjon) {
         this.type = type;
-        this.x = random() * 400;
-        if (this.domene() === "himmel") {
-            this.y = random() * 100 + 10;
+        this.x = random() * (dimensions.width - 100);
+        this.y = random() * (dimensions.height - 100)
+        this.posisjon = new Set(posisjon);
+        if (!this.posisjon.has("himmel") && ! "fuglsolsky".includes(type)) {
+            this.posisjon.add("bakke");
         }
-        if (this.domene() === "bakke") {
-            this.y = random() * 100 + 200;
+        if (!this.posisjon.has("bakke") &&  "fuglsolsky".includes(type)) {
+            this.posisjon.add("himmel");
         }
-
     }
 
     stage(target) {
-        const div = create("div");
-        div.className = this.type;
-        target.append(div);
-        this.div = div;
+        if (!this.div) {
+            const div = create("div");
+            this.div = div;
+            this.div.className = this.type;
+        }
+        target.append(this.div);
+        this.plassering();
+    }
+
+    plassering() {
+        if (this.posisjon.has("himmel")) {
+            this.y = random() * 100 + 10;
+        }
+        if (this.posisjon.has("bakke")) {
+            this.y = random() * 100 + dimensions.height - 100 - sz.h * 2;
+        }
+        if (this.posisjon.has("høyre")) {
+            this.x = random() * 100 + dimensions.width - 100 - sz.w * 2;
+        }
+        if (this.posisjon.has("venstre")) {
+            this.x = random() * 100 + 20;
+        }
+        if (this.posisjon.has("midten")) {
+            this.x = random() * 100 + dimensions.width / 2 - sz.w * 2;
+        }
     }
 
     render() {
         const { x, y, div, scale, forsterk } = this;
-        const skale = forsterk ? scale*scale : scale;
+        const skale = forsterk ? scale * scale : scale;
         div.style.transform = `translate(${x}px, ${y}px) scale(${skale})`;
-    }
-
-    domene() {
-        const { type } = this;
-        if ("fuglskysol".includes(type)) return "himmel";
-        return "bakke"
     }
 
 }
 
-const actors = "mann,gutt,dame,jente,hund,katt,fugl".split(",");
+export const actors = "mann,gutt,dame,jente,hund,katt,fugl".split(",");
 const verbs = "kom,gikk,stod,gående".split(",");
 const adverbs = "langsomt,raskt,hurtig".split(",");
 const scenic = "dag,natt,lyst,mørkt".split(",");
 const adjective = "stor,liten,små,rosa,rød,blå,gul,grønn,brun,veldig".split(",");
 const tallord = "en,to,tre,fire,fem,seks,sju,åtte,ni,ti".split(",");
+const posisjon = "himmel,bakke,oppe,nede,høyre,venstre,midten".split(",");
+const pronomen = "den".split(",");
 
 
 
 const stem = word => {
     if (word.length < 3) return word;
     if ("småelitenmini".includes(word)) return "liten";
+    if ("dettehunhanhennehamdenne".includes(word)) return "den";
     if (word.length < 4) return word;
+    if ("midtenmittsenter".includes(word)) return "midten";
     if ("menmannenmennene".includes(word)) return "mann";
     if ("kattenekatter".includes(word)) return "katt";
     if ("gutterguttene".includes(word)) return "gutt";
@@ -92,7 +117,8 @@ const stem = word => {
     if ("blåe".includes(word)) return "blå";
     if ("grønne".includes(word)) return "grønn";
     if ("brune".includes(word)) return "brun";
-    
+    if ("oppehimmelen".includes(word)) return "himmel";
+    if ("nedebakken".includes(word)) return "bakke";
     if ("storedigersvære".includes(word)) return "stor";
     if ("sværtmegajyslakjempenormtbitte".includes(word)) return "veldig";
     return word;
@@ -123,6 +149,13 @@ export const parse = linje => {
         if (tallord.includes(w)) {
             ast.antall = tallord.indexOf(w) + 1;
         }
+        if (posisjon.includes(sw)) {
+            ast.posisjon.push(sw);
+        }
+        if (pronomen.includes(sw)) {
+            ast.pronomen = sw;
+        }
+
     }
     return ast;
 }
