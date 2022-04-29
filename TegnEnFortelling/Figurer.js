@@ -88,7 +88,7 @@ export class Figur {
 
 }
 
-export const actors = "mann,gutt,dame,jente,hund,katt,fugl".split(",");
+export const actors = "mann,gutt,dame,jente,hund,katt,fugl,hus,sol,sky,busk".split(",");
 const verbs = "kom,gikk,stod,gående".split(",");
 const adverbs = "langsomt,raskt,hurtig".split(",");
 const scenic = "dag,natt,lyst,mørkt".split(",");
@@ -103,11 +103,14 @@ const stem = word => {
     if (word.length < 3) return word;
     if ("småelitenmini".includes(word)) return "liten";
     if ("dettehunhanhennehamdenne".includes(word)) return "den";
+    if ("husenehuset".includes(word)) return "hus";
+    
     if (word.length < 4) return word;
+    if ("buskene".includes(word)) return "busk";
     if ("midtenmittsenter".includes(word)) return "midten";
-    if ("menmannenmennene".includes(word)) return "mann";
+    if ("menmannenmennenebondenebønder".includes(word)) return "mann";
     if ("kattenekatter".includes(word)) return "katt";
-    if ("gutterguttene".includes(word)) return "gutt";
+    if ("gutterguttenesønnenesønner".includes(word)) return "gutt";
     if ("fuglerfuglene".includes(word)) return "fugl";
     if ("damenedamer".includes(word)) return "dame";
     if ("jentejentajentenejenter".includes(word)) return "jente";
