@@ -19,13 +19,20 @@
 }
 
 .dame,
-.jente,
 .fugl {
     background-image: url("fugl.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 5vw;
     height: 5vh;
+}
+
+.jente {
+    background-image: url("jente.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5vw;
+    height: 12vh;
 }
 
 .hund {
